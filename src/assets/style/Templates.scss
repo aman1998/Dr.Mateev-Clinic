@@ -1,0 +1,17 @@
+@import './Variables.scss';
+
+@mixin btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 269px;
+    height: 40px;
+    border-radius: 40px;
+    background: $lightGreen;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FBFBFB;
+  }
