@@ -1,6 +1,6 @@
 @import './Variables.scss';
 
-@mixin btn{
+@mixin btn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,4 +14,13 @@
     font-size: 14px;
     line-height: 17px;
     color: #FBFBFB;
-  }
+}
+
+@mixin title {
+  text-align: center;
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 140%;
+  color: $lightGreen;
+  margin-bottom: 20px;
+}

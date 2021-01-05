@@ -1,8 +1,8 @@
 @import './Variables.scss';
 @import './Templates.scss';
 
-.blockHeader {
-  padding: 22px 0 20px 0;
+.header {
+  padding: 14px 0 12px 0;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -10,18 +10,96 @@
     background: url('../img/logo.png');
     width: 270px;
     height: 98px;
+    margin-bottom: 8px;
   }
-  .nav {
-    .active {
-        color: $lightGreen;
+  .content {
+    width: auto;
+    height: 100%;
+    .navigation {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      .nav {
+        margin-bottom: 8px;
+        margin-right: 30px;
+        .active {
+          color: $lightGreen;
+        }
+        .item {
+          margin-right: 20px;
+          font-size: 20px;
+          line-height: 24px;
+        }
+        .end {
+          margin-right: 0;
+        }
+      }
     }
-    .item {
-      margin-right: 20px;
-      font-size: 20px;
-      line-height: 24px;
-    }
-    .end {
-      margin-right: 0;
+    .contacts {
+      display: flex;
+      justify-content: flex-end;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 18px;
+      margin-bottom: 28px;
+      .faq {
+        margin-right: 22px;
+      }
+      .line {
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        height: 40px;
+        margin: 0 10px;
+      }
+      &-left, &-right {
+        display: flex;
+        align-items: center;
+      }
+      &-left {
+        .item {
+          display: flex;
+          align-items: center;
+          .address {
+            width: 162px;
+            margin-left: 10px;
+          }
+          .phone {
+            width: 126px;
+            margin-left: 10px;
+          }
+        }
+      }
+      &-right {
+        margin-left: 90px;
+        .item {
+          margin-left: 20px;
+        }
+        select {
+          -webkit-appearance:none;
+          -moz-appearance:none;
+          -ms-appearance:none;
+          appearance:none;
+          outline:0;
+          box-shadow:none;
+          border:1px solid $lightGreen !important;
+          // background: $lightGreen;
+          background-image: none;
+          color:#0A0816;;
+          padding: 5px;
+          border-radius: 20px;
+          cursor:pointer;
+          font-size: 14px;
+          text-align: center;
+        }
+        select::-ms-expand {
+          display: none;
+        }
+        .select {
+          position: relative;
+          display: flex;
+          margin-left: 25px;
+        }
+        
+      }
     }
   }
   .btn {
