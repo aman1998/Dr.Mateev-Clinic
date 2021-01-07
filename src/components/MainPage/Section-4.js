@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 
 import photo from '../../assets/img/photo-2.png'
+
 import Modal1 from '../UI/modal-1'
 
 const Section4 = () => {

@@ -7,11 +7,12 @@ import icon3 from '../../assets/icons/facebook.svg'
 import icon4 from '../../assets/icons/twitter.svg'
 import icon5 from '../../assets/icons/instagram.svg'
 
-import Modal1 from '../UI/modal-1'
+import Modal2 from '../UI/modal-2'
 
 const Header = () => {
   const [active, setActive] = useState(false)
-
+  const [close, setClose] = useState(false)
+  
     return (
       <header className='container'>
         <div className='header'>
@@ -45,18 +46,43 @@ const Header = () => {
             </div>
             <div className='navigation'>
               <nav className='nav'>
-                  <NavLink to='/' className='item' activeClassName='active' >Главное</NavLink>
-                  <NavLink to='/about' className='item' activeClassName='active' >О клинике</NavLink>
-                  <NavLink to='/portfolio' className='item' activeClassName='active' >Работы</NavLink>
-                  <NavLink to='/gallery' className='item' activeClassName='active' >Галерея</NavLink>
-                  <NavLink to='/blog' className='item' activeClassName='active' >Блог</NavLink>
-                  <NavLink to='/contacts' className='item end' activeClassName='active' >Контакты</NavLink>
+                  <ul>
+                    <li className='item'><NavLink to='/' className='link' activeClassName='active' >Главное</NavLink></li>
+                    <li className='item'><NavLink to='/about' className='link' activeClassName='active' >О клинике</NavLink></li>
+                    <li className='item'>
+                      <NavLink to='/portfolio' className='link' activeClassName='active' >Работы</NavLink>
+                      <div className='dropdown'>
+                        <div className='dropdown-item'> 
+                          <NavLink to='/portfolio/1' className='link' activeClassName='active'>Пластические операции</NavLink>
+                        </div>
+                        <div className='dropdown-item'> 
+                          <NavLink to='/portfolio/2' className='link' activeClassName='active'>Реконструктивные операции</NavLink>
+                        </div>
+                        <div className='dropdown-item'> 
+                          <NavLink to='/portfolio/3' className='link' activeClassName='active'>Работы “До - После”</NavLink>
+                        </div>
+                      </div>
+                    </li>
+                    <li className='item'>
+                      <NavLink to='/gallery' className='link' activeClassName='active' >Галерея</NavLink>
+                      <div className='dropdown'>
+                        <div className='dropdown-item'> 
+                          <NavLink to='/gallery/1' className='link' activeClassName='active'>Галерея клиники</NavLink>
+                        </div>
+                        <div className='dropdown-item'> 
+                          <NavLink to='/gallery/2' className='link' activeClassName='active'>Галерея работ “До - После”</NavLink>
+                        </div>
+                      </div>
+                    </li>
+                    <li className='item'><NavLink to='/blog' className='link' activeClassName='active' >Блог</NavLink></li>
+                    <li className='item end'><NavLink to='/contacts' className='link' activeClassName='active' >Контакты</NavLink></li> 
+                  </ul>
               </nav>
               <button className='btn' onClick={() => setActive(true)}>Заказать звонок</button>
             </div>
           </div>
         </div>
-        <Modal1 active={active} setActive={setActive}/>
+        <Modal2 active={active} setActive={setActive} close={close} setClose={setClose}/>
       </header>
     )
 }

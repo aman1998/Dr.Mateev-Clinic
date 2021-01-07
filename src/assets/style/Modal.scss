@@ -1,3 +1,6 @@
+@import './Templates.scss';
+@import './Variables.scss';
+
 .modal {
   height: 100vh;
   width: 100vw;
@@ -11,14 +14,61 @@
   opacity: 0;
   pointer-events: none;
   z-index: 2;
+  font-family: Lato;
+  font-style: normal;
   .content {
+    display: flex;
+    flex-direction: column;
     padding: 20px;
-    border-radius: 12px;
-    background: white;
-    width: 400px;
-    height: 200px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #FFFFFF;
+    padding: 20px 24px;
+    width: 468px;
+    height: 580px;
     transform: scale(0.5);
     transition: 0.4s all;
+    .title {
+      text-align: center;
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 26px;
+    }
+    p {
+      margin: 15px 0 0 0;
+      text-align: center;
+      font-size: 18px;
+      line-height: 22px;
+    }
+    .input {
+      width: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      height: 40px;
+      outline: none;
+      padding: 0 10px;
+      font-size: 16px;
+    }
+    .label {
+      margin: 10px 0 5px 0;
+      font-size: 16px;
+      line-height: 19px;
+    }
+    .error {
+      font-size: 12px;
+      color: #ff0000;
+    }
+    .check-wrapper {
+      margin: 10px 0 0 0;
+      .check {
+        font-size: 18px;
+      }
+    }
+    .btn {
+      @include btn;
+      width: 100%;
+      margin-top: 15px;
+      height: 40px;
+    }
   }
   .content.active {
     transform: scale(1);
@@ -30,4 +80,124 @@
   opacity: 1;
   pointer-events: all;
 }
+
+.modal-wrapper {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+  font-family: Lato;
+  font-style: normal;
+}
+.show {
+  opacity: 1;
+  pointer-events: all;
+}
+.modal2 {
+  width: 300px;
+  position: absolute;
+  color: #FFFFFF;
+  top: -100%;
+  .content2 {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
+    background: $darkGreen;
+    padding: 20px 24px;
+    width: 468px;
+    height: 580px;
+    .title {
+      text-align: center;
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 26px;
+    }
+    p {
+      margin: 15px 0 0 0;
+      text-align: center;
+      font-size: 18px;
+      line-height: 22px;
+    }
+    .input {
+      width: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      height: 40px;
+      outline: none;
+      padding: 0 10px;
+      font-size: 16px;
+    }
+    .label {
+      margin: 10px 0 5px 0;
+      font-size: 16px;
+      line-height: 19px;
+    }
+    .error {
+      font-size: 15px;
+      color: #f3ef07;
+    }
+    .check-wrapper {
+      margin: 10px 0 0 0;
+      .check {
+        font-size: 18px;
+      }
+    }
+    .btn {
+      @include btn;
+      width: 100%;
+      margin-top: 15px;
+      height: 40px;
+    }
+  }
+}
+
+.down {
+  animation: deleteForm 1s forwards ease;
+}
+.up {
+  animation: showForm .5s forwards ease;
+  opacity: 1;
+  pointer-events: all;
+  }
+
+@keyframes showForm {
+  0% {
+    top: 0;
+    right: -100%;
+    transform: translateX(-50%);
+  }
+  100% {
+    top: 0;
+    right: 0;
+    transform: translateX(-55%);
+  }
+}  
+
+@keyframes deleteForm {
+  0% {
+    top: 0;
+    right: 0;
+    transform: translateX(-50%);
+  }
+  30% {
+    // top: -100%;
+    right: -100%;
+    transform: translateX(-50%);
+  }
+  100% {
+    top: -100%;
+    right: 0;
+    transform: translateX(-60%);
+    opacity: 0;
+    pointer-events: none;
+  }
+}  
+
+
 
