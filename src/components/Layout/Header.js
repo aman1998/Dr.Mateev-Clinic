@@ -47,19 +47,19 @@ const Header = () => {
             <div className='navigation'>
               <nav className='nav'>
                   <ul>
-                    <li className='item'><NavLink to='/' className='link' activeClassName='active' >Главное</NavLink></li>
-                    <li className='item'><NavLink to='/about' className='link' activeClassName='active' >О клинике</NavLink></li>
+                    <li className='item'><NavLink to='/' className='link' activeClassName='active' exact>Главное</NavLink></li>
+                    <li className='item'><NavLink to='/about' className='link' activeClassName='active' exact>О клинике</NavLink></li>
                     <li className='item'>
-                      <NavLink to='/portfolio' className='link' activeClassName='active' >Работы</NavLink>
+                      <NavLink to='/works' className='link' activeClassName='active' exact>Работы</NavLink>
                       <div className='dropdown'>
                         <div className='dropdown-item'> 
-                          <NavLink to='/portfolio/1' className='link' activeClassName='active'>Пластические операции</NavLink>
+                          <NavLink to='/works/plastic' className='link' activeClassName='active' exact>Пластические операции</NavLink>
                         </div>
                         <div className='dropdown-item'> 
-                          <NavLink to='/portfolio/2' className='link' activeClassName='active'>Реконструктивные операции</NavLink>
+                          <NavLink to='/works/reconstruction' className='link' activeClassName='active' exact>Реконструктивные операции</NavLink>
                         </div>
                         <div className='dropdown-item'> 
-                          <NavLink to='/portfolio/3' className='link' activeClassName='active'>Работы “До - После”</NavLink>
+                          <NavLink to='/works/example' className='link' activeClassName='active' exact>Работы “До - После”</NavLink>
                         </div>
                       </div>
                     </li>

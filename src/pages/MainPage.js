@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PageTemplate from '../components/Template/PageTemplate'
 
 import Section1 from '../components/MainPage/Section-1'
@@ -9,6 +9,11 @@ import Section5 from '../components/MainPage/Section-5'
 import Section6 from '../components/MainPage/Section-6'
 
 const MainPage = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
     return (
         <PageTemplate>
           <div className='mainPage'>

@@ -1,0 +1,57 @@
+@import './Templates.scss';
+@import './Variables.scss';
+
+.aboutPage {
+  img {
+    border-radius: 10px;
+  }
+  .text {
+    font-size: 18px;
+    line-height: 140%;
+  }
+  .title {
+    @include title
+  }
+  .section-1 {
+    .selected {
+      width: 100%;
+      height: 550px;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+    .images {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      .item {
+        width: 170px;
+        height: 140px;
+        object-fit: cover;
+        cursor: pointer;
+      }
+    }
+    .awards {
+      margin: 40px 0 20px 0;
+      height: 800px;
+    }
+  }
+  .section-2 {
+    .teams {
+      width: 100%;
+      height: 450px;
+    }
+  }
+  .teams-wrapper {
+    display: flex;
+    justify-content: space-between;
+    .left, .right {
+      max-width: 570px;
+      width: 100%;
+    }
+    img {
+      width: 100%;
+      height: 350px;
+      margin: 40px 0 20px 0;
+    }
+  }
+}

@@ -3,6 +3,8 @@ import React from 'react'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
 
+import axios from 'axios'
+
 const Modal1 = ({active, setActive, setClose, close}) => {
   const closeModal = () => {
     setActive(false)
@@ -15,7 +17,7 @@ const Modal1 = ({active, setActive, setClose, close}) => {
           name: '',
           mail: '',
           phone: '',
-          color: 'Подтяжка лица',
+          view: 'Подтяжка лица',
           acceptTerms: false
         }
       }
@@ -32,7 +34,15 @@ const Modal1 = ({active, setActive, setClose, close}) => {
       }
       onSubmit ={
         fields => {
-          console.log(fields)
+          axios.post('/api/form', {
+            name: fields.name,
+            phone: fields.phone,
+            mail: fields.mail,
+            view: fields.view
+          })
+          .then((res) => {
+            console.log('res',res)
+          })
         }
       } >
       {() => (
@@ -54,7 +64,7 @@ const Modal1 = ({active, setActive, setClose, close}) => {
                 <Field type="text" name="phone" className='input'/>
                 <ErrorMessage name="phone" component="div" className='error'/>
                 <div className='label'>Выбрать вид операции </div>
-                <Field as="select" name="color" className='input'>
+                <Field as="select" name="view" className='input'>
                   <option value="Подтяжка лица">Подтяжка лица</option>
                   <option value="Пластика век">Пластика век</option>
                   <option value="Контурная пластика губ">Контурная пластика губ</option>

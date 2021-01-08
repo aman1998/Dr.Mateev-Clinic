@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 import icon1 from '../../assets/icons/lift.svg'
 import icon2 from '../../assets/icons/eyebrows.svg'
@@ -21,7 +22,11 @@ const Section3 = () => {
             <div key={item.id} className='view'>
               <img src={item.icon} alt='photo' className='icon'/>
               <div className='text'>{item.title}</div>
-              <button className='btn'>Подробнее</button>
+              <NavLink to='/works/' className='btn'>
+                <button className='btn'>
+                  Подробнее
+                </button>
+              </NavLink>
             </div>
           )}
         </div>

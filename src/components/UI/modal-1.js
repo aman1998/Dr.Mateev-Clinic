@@ -28,7 +28,7 @@ const Modal1 = ({active, setActive}) => {
           acceptTerms: Yup.bool().oneOf([true], 'Поставьте галочку')
         })
       }
-      onSubmit ={
+      onSubmit = {
         fields => {
           axios.post('/api/form', {
             name: fields.name,

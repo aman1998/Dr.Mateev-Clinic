@@ -11,18 +11,19 @@
     border: none;
     outline: none;
     cursor: pointer;
-    font-size: 14px;
-    line-height: 17px;
+    font-size: 16px;
+    line-height: 19px;
     color: #FBFBFB;
 }
 
 @mixin title {
+  margin-top: 80px;
   text-align: center;
   font-weight: 300;
   font-size: 36px;
   line-height: 140%;
   color: $lightGreen;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 @mixin  views {

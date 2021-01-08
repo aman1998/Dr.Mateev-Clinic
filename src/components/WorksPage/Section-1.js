@@ -26,8 +26,8 @@ const Section1 = () => {
               <div className='view'>Пластика врожденных ложных суставов</div>
               <div className='view'>Эндопротезирование груди силиконовыми имплантами</div>
             </div>
-            <NavLink to='/portfolio/1'>
-              <div className='btn'>Узнать подробнее</div>
+            <NavLink to='/works/plastic'>
+              <button className='btn'>Узнать подробнее</button>
             </NavLink>
           </div>
           <div className='right'>
@@ -38,8 +38,8 @@ const Section1 = () => {
               <div className='view'>Хирургическое лечение болей в кисти</div>
               <div className='view'>Хирургическая коррекция деформаций конечностей при ДЦП детей</div>
             </div>
-            <NavLink to='/portfolio/1'>
-              <div className='btn'>Узнать подробнее</div>
+            <NavLink to='/works/reconstruction'>
+              <button className='btn'>Узнать подробнее</button>
             </NavLink>
           </div>
         </div>
