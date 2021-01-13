@@ -19,10 +19,10 @@ const Section3 = () => {
         <h2 className='title'>Виды операций</h2>
         <div className='views'>
           {views.map(item => 
-            <div key={item.id} className='view'>
+            <div key={item.id} className={`view view-${item.id}`}>
               <img src={item.icon} alt='photo' className='icon'/>
               <div className='text'>{item.title}</div>
-              <NavLink to='/works/' className='btn'>
+              <NavLink to='/works/' className={`btn`}>
                 <button className='btn'>
                   Подробнее
                 </button>

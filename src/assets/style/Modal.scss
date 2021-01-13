@@ -27,17 +27,32 @@
     height: 580px;
     transform: scale(0.5);
     transition: 0.4s all;
+    @media screen and (max-width: 560px) {
+      width: 300px;
+      padding: 18px 20px;
+    }
+    // @media screen and (max-width: 560px) {
+    //   width: 300px;
+    //  }
     .title {
       text-align: center;
       font-weight: 600;
       font-size: 22px;
       line-height: 26px;
+      @media screen and (max-width: 560px) {
+        font-size: 18px;
+        line-height: 20px;
+      }
     }
     p {
       margin: 15px 0 0 0;
       text-align: center;
       font-size: 18px;
       line-height: 22px;
+      @media screen and (max-width: 560px) {
+        font-size: 16px;
+        line-height: 18px;
+      }
     }
     .input {
       width: 100%;
@@ -102,7 +117,7 @@
   width: 300px;
   position: absolute;
   color: #FFFFFF;
-  top: -100%;
+  // top: -100%;
   .content2 {
     display: flex;
     flex-direction: column;
@@ -110,19 +125,30 @@
     border-radius: 10px;
     background: $darkGreen;
     padding: 20px 24px;
-    width: 468px;
+    width: 385px;
     height: 580px;
+    @media screen and (max-width: 560px) {
+      width: 300px;
+     }
     .title {
       text-align: center;
       font-weight: 600;
       font-size: 22px;
       line-height: 26px;
+      @media screen and (max-width: 560px) {
+        font-size: 18px;
+        line-height: 20px;
+      }
     }
     p {
       margin: 15px 0 0 0;
       text-align: center;
       font-size: 18px;
       line-height: 22px;
+      @media screen and (max-width: 560px) {
+        font-size: 16px;
+        line-height: 28px;
+      }
     }
     .input {
       width: 100%;
@@ -146,12 +172,16 @@
       margin: 10px 0 0 0;
       .check {
         font-size: 18px;
+        @media screen and (max-width: 560px) {
+          font-size: 16px;
+          line-height: 18px;
+        }
       }
     }
     .btn {
       @include btn;
       width: 100%;
-      margin-top: 15px;
+      margin-top: 35px;
       height: 40px;
     }
   }
@@ -164,6 +194,9 @@
   animation: showForm .5s forwards ease;
   opacity: 1;
   pointer-events: all;
+  @media screen and (max-width: 560px) {
+    animation: showFormMobile .5s forwards ease;
+  }
   }
 
 @keyframes showForm {
@@ -175,7 +208,20 @@
   100% {
     top: 0;
     right: 0;
-    transform: translateX(-55%);
+    transform: translateX(-28%);
+  }
+}  
+
+@keyframes showFormMobile {
+  0% {
+    top: 0;
+    right: -100%;
+    transform: translateX(-50%);
+  }
+  100% {
+    top: 0;
+    right: 0;
+    transform: translateX(0);
   }
 }  
 
@@ -191,8 +237,9 @@
     transform: translateX(-50%);
   }
   100% {
-    top: -100%;
-    right: 0;
+    // top: -100%;
+    top: 0;
+    right: -100%;
     transform: translateX(-60%);
     opacity: 0;
     pointer-events: none;

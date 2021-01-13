@@ -2,7 +2,7 @@ import image1 from '../../assets/img/teams-1.png'
 import image2 from '../../assets/img/teams-2.png'
 import image3 from '../../assets/img/teams-3.png'
 
-const Section2 = () => {
+const About2 = () => {
   return (
     <section className='section-2'>
       <div className='container'>
@@ -25,4 +25,4 @@ const Section2 = () => {
   )
 }
 
-export default Section2
+export default About2

@@ -7,16 +7,27 @@ import icon3 from '../../assets/icons/facebook.svg'
 import icon4 from '../../assets/icons/twitter.svg'
 import icon5 from '../../assets/icons/instagram.svg'
 
+import Burger from '../UI/burger'
+
+import burgerIcon from '../../assets/icons/burger.svg'
+
 import Modal2 from '../UI/modal-2'
 
 const Header = () => {
   const [active, setActive] = useState(false)
   const [close, setClose] = useState(false)
+  const [burger, setBurger] = useState(false)
   
     return (
       <header className='container'>
         <div className='header'>
-          <div className='logo'></div>
+          <NavLink to='/' exact>
+            <div className='logo'></div>
+          </NavLink>
+          <div className='mobile'>
+            <button className='btn btn-mob' onClick={() => setActive(true)}>Заказать звонок</button>
+            <img src={burgerIcon} alt='burger' className='burger-icon' onClick={() => setBurger(true)}/>
+          </div>
           <div className='content'>
             <div className='contacts'>
               <div className='contacts-left'>
@@ -36,7 +47,7 @@ const Header = () => {
                 <img src={icon4} alt='twitter-icon' className='item'/>
                 <img src={icon5} alt='instagram-icon' className='item'/>
                 <div className='select'>
-                  <select name = 'myfield' value={'ru'} className='language'>
+                  <select name = 'myfield' defaultValue={'ru'} className='language'>
                     <option value="ru">RU</option>
                     <option value="en">EN</option>
                     <option value="kg">KG</option>
@@ -67,14 +78,14 @@ const Header = () => {
                       <NavLink to='/gallery' className='link' activeClassName='active' >Галерея</NavLink>
                       <div className='dropdown'>
                         <div className='dropdown-item'> 
-                          <NavLink to='/gallery/1' className='link' activeClassName='active'>Галерея клиники</NavLink>
+                          <NavLink to='/gallery/clinic' className='link' activeClassName='active'>Галерея клиники</NavLink>
                         </div>
                         <div className='dropdown-item'> 
-                          <NavLink to='/gallery/2' className='link' activeClassName='active'>Галерея работ “До - После”</NavLink>
+                          <NavLink to='/gallery/works' className='link' activeClassName='active'>Галерея работ “До - После”</NavLink>
                         </div>
                       </div>
                     </li>
-                    <li className='item'><NavLink to='/blog' className='link' activeClassName='active' >Блог</NavLink></li>
+                    <li className='item'><NavLink to='/blogs' className='link' activeClassName='active' >Блог</NavLink></li>
                     <li className='item end'><NavLink to='/contacts' className='link' activeClassName='active' >Контакты</NavLink></li> 
                   </ul>
               </nav>
@@ -83,6 +94,10 @@ const Header = () => {
           </div>
         </div>
         <Modal2 active={active} setActive={setActive} close={close} setClose={setClose}/>
+        <Burger 
+          burger={burger}
+          setBurger={setBurger}
+        />
       </header>
     )
 }
