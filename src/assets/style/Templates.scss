@@ -1,6 +1,7 @@
 @import './Variables.scss';
 
 @mixin btn {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;

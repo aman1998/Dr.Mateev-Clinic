@@ -35,6 +35,9 @@ const Modal1 = ({active, setActive}) => {
       }
       onSubmit = {
         fields => {
+          setLoading(true)
+          setError(false)
+          setSuccess(false)
           axios.post('/api/form', {
             name: fields.name,
             phone: fields.phone,
@@ -44,6 +47,12 @@ const Modal1 = ({active, setActive}) => {
           .then((res) => {
             console.log('res',res)
             setSuccess(true)
+            setLoading(false)
+          })
+          .catch((e) => {
+            setLoading(false)
+            setSuccess(false)
+            setError(true)
           })
         }
       } >
@@ -101,12 +110,11 @@ const Modal1 = ({active, setActive}) => {
               </div>
               <ErrorMessage name="acceptTerms" component="div" className='error'/>
               <button type="submit" className='btn'>
-                Отправить
-                {/* {loading ? 
-                  <div className='login-loading'></div> : 
-                failed ? 
-                  <div className='btn-error'>{props.errorBtn}</div> : 
-                  props.btn} */}
+                {loading ? 
+                  <div className='loading'></div> : 
+                error ? 
+                  <div className='btn-error'>{'Ошибка'}</div> : 
+                  'Оправить'}
               </button>
             </Form>
           </div>

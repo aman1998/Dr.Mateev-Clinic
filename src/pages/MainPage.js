@@ -29,7 +29,7 @@ import {
 
 
 const MainPage = () => {
-
+  
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])

@@ -1,5 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { NavLink } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import { getLanguage } from "../../store/actions/language"
+import { useTranslation } from 'react-i18next'
 
 import icon1 from '../../assets/icons/map.svg'
 import icon2 from '../../assets/icons/phone.svg'
@@ -14,9 +17,27 @@ import burgerIcon from '../../assets/icons/burger.svg'
 import Modal2 from '../UI/modal-2'
 
 const Header = () => {
+  const { t, i18n } = useTranslation()
+
   const [active, setActive] = useState(false)
   const [close, setClose] = useState(false)
   const [burger, setBurger] = useState(false)
+
+  const dispatch = useDispatch()
+
+  const { language } = useSelector(state => ({
+    language: state.language.language,
+  }))
+
+
+  useEffect(() => {
+    dispatch(getLanguage(localStorage.getItem('i18nextLng')))
+  }, [language])
+
+  async function handleChange (e) {
+    dispatch(getLanguage(e.target.value))
+    await i18n.changeLanguage(e.target.value)
+  }
   
     return (
       <header className='container'>
@@ -47,7 +68,7 @@ const Header = () => {
                 <img src={icon4} alt='twitter-icon' className='item'/>
                 <img src={icon5} alt='instagram-icon' className='item'/>
                 <div className='select'>
-                  <select name = 'myfield' defaultValue={'ru'} className='language'>
+                  <select name = 'myfield' defaultValue={language ? language : 'ru'} className='language' onChange={handleChange}>
                     <option value="ru">RU</option>
                     <option value="en">EN</option>
                     <option value="kg">KG</option>
@@ -97,6 +118,8 @@ const Header = () => {
         <Burger 
           burger={burger}
           setBurger={setBurger}
+          language={language}
+          handleChange={handleChange}
         />
       </header>
     )

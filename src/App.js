@@ -15,18 +15,7 @@ import ContactsPage from './pages/ContactsPage'
 import BlogsPage from './pages/BlogsPage' 
 import AdminPage from './components/Admin/index'
 
-import axios from 'axios'
-
 function App() {
-  useEffect(() => {
-    axios.get('/blogs')
-    .then((res) => {
-      console.log('res',res)
-    })
-    .catch((e) => {
-      console.log(e)
-    })
-  }, [])
   return (
     <BrowserRouter>
       <Switch>

@@ -8,7 +8,7 @@ import icon3 from '../../assets/icons/facebook2.svg'
 import icon4 from '../../assets/icons/twitter2.svg'
 import icon5 from '../../assets/icons/instagram2.svg'
 
-const Burger = ({burger, setBurger}) => {
+const Burger = ({burger, setBurger, language, handleChange}) => {
   return (
     <div className={burger ? 'burger-wrapper show' : 'burger-wrapper'} onClick={() => setBurger(false)}>
       <section className={`burger ${burger ? 'burger-active' : ''}`} onClick={e => e.stopPropagation()}>
@@ -62,7 +62,7 @@ const Burger = ({burger, setBurger}) => {
               <img src={icon5} alt='instagram-icon'/>
             </div>
             <div className='select'>
-              <select name = 'myfield' defaultValue={'ru'} className='language'>
+              <select name = 'myfield' defaultValue={language ? language : 'ru'} className='language' onChange={handleChange}>
                 <option value="ru">RU</option>
                 <option value="en">EN</option>
                 <option value="kg">KG</option>
