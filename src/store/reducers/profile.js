@@ -12,11 +12,15 @@ import {
 
 const initialState = {
   token: localStorage.getItem('token') || false,
-  myProfile: {
-    name: 'Aman'
+  info: {
+    name: 'Aman',
+    age: '42',
+    gender: 'Мужской',
+    phone: '996551772525',
+    mail: '1998-amangeldi@mail.ru',
+    address: ''
   },
-  balance: '',
-  isLog: false,
+  isLog: true,
   get: {
     success: false,
     loading: false,

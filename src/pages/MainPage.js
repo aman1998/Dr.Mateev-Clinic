@@ -9,6 +9,10 @@ import Section5 from '../components/MainPage/Section-5'
 import Section6 from '../components/MainPage/Section-6'
 // import Section7 from '../components/MainPage/Section-7'
 
+import Aos from 'aos'
+import 'aos/dist/aos.css'
+
+
 import {
   withScriptjs,
   withGoogleMap,
@@ -31,17 +35,25 @@ import {
 const MainPage = () => {
   
   useEffect(() => {
-    window.scrollTo(0, 0)
+    Aos.init({duration: 2000})
   }, [])
 
     return (
         <PageTemplate>
           <div className='mainPage'>
-            <Section1 />
+            <div data-aos='fade-top'>
+              <Section1 />
+            </div>
             <Section2 />
-            <Section3 />
-            <Section4 />
-            <Section5 />
+            <div data-aos='fade-right'>
+              <Section3 />
+            </div>
+            <div>
+              <Section4 />
+            </div>
+            <div data-aos='fade-left'>
+              <Section5 />
+            </div>
             <Section6 />
             {/* <Section7 /> */}
             {/* <div className='container'>

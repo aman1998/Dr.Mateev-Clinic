@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 import icon1 from '../../assets/icons/write.svg'
 import icon2 from '../../assets/icons/customer.svg'

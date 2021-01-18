@@ -1,0 +1,97 @@
+@import './Templates.scss';
+@import './Variables.scss';
+
+.profilePage {
+  max-width: 770px;
+  margin: 0 auto;
+  padding: 0 10px;
+  .profile-1 {
+    margin: 40px 0;
+    padding: 8px 16px 16px 16px;
+    box-shadow: $shadow;
+    .top {
+      display: flex;
+      justify-content: space-between;
+      a {
+        display: block;
+        width: 18px;
+        height: 18px;
+      }
+      .title {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+      }
+    }
+    .bottom {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      .avatar-wrapper {
+        width: 100px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #EFEFEF;
+        border-radius: 50%;
+      }
+      .item {
+        margin-bottom: 8px;
+        font-size: 15px;
+        line-height: 18px;
+      }
+      .info-1 {
+        margin: 0 120px 0 10px;
+      }
+    }
+  }
+  .profile-2 {
+    margin-bottom: 40px;
+    padding: 8px 16px;
+    box-shadow: $shadow;
+    display: flex;
+    flex-direction: column;
+    .input {
+      height: 48px;
+      border: 1px solid rgba(0, 0, 0, 0.4);
+      border-radius: 10px;
+      outline: none;
+    }
+    .input-text {
+      padding: 8px;
+      height: 134px;
+    }
+    .input-select {
+      margin: 16px 0;
+    }
+    .title {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      margin-bottom: 16px;
+    }
+    .input-wrapper {
+      display: flex;
+    }
+    .input-left, .input-right {
+      padding: 3px 8px;
+      width: 100%;
+    }
+    .input-left {
+      margin-right: 5px;
+    }
+    .input-right {
+      margin-left: 5px;
+    }
+    .btn {
+      @include btn;
+      width: 100%;
+      margin-top: 16px;
+    }
+    .error {
+      font-size: 15px;
+      color: #f30707;
+    }
+  }
+}

@@ -6,10 +6,6 @@ import Gallery2 from '../components/GalleryPage/Gallery-2'
 
 const GalleryPage = () => {
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
-  
   return (
       <PageTemplate>
         <div className='galleryPage'>

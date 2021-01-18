@@ -6,10 +6,6 @@ import Section2 from '../components/AboutPage/About-2'
 
 const AboutPage = () => {
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
-
   return (
       <PageTemplate>
         <div className='aboutPage'>

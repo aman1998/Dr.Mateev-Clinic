@@ -120,7 +120,7 @@ const Modal1 = ({active, setActive}) => {
           </div>
         }
         </div>
-      </section>
+      // </section>
       )}
     </Formik>
   )

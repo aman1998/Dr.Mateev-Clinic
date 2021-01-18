@@ -4,10 +4,6 @@ import Section from '../components/ContactsPage/Contacts'
 
 const ContactsPage = () => {
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
-
   return (
     <PageTemplate>
       <div className='contactsPage'>

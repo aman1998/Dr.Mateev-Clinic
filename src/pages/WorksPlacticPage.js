@@ -6,11 +6,6 @@ import Section2 from '../components/WorksPage/PlasticPage/Section-2'
 
 const WorksPage = () => {
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
-
-
   return (
     <PageTemplate>
       <div className='worksPage'>

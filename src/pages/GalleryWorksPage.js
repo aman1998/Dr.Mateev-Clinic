@@ -5,11 +5,6 @@ import Section from '../components/GalleryPage/GalleryWorks.js/Works'
 
 const WorksPage = () => {
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
-
-
   return (
     <PageTemplate>
       <div className='galleryPage'>

@@ -5,8 +5,8 @@ import PostList from "./PostList";
 
 const AdminPage = () => {
   return (
-    <Admin dataProvider={restProvider('http://192.168.88.83:3001')} >
-      <Resource name='blogs' list={PostList} />
+    <Admin dataProvider={restProvider('https://api.arenagames.io')} >
+      <Resource name='rates' list={PostList} />
     </Admin>
   );
 }

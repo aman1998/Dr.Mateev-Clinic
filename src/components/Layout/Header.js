@@ -14,7 +14,7 @@ import Burger from '../UI/burger'
 
 import burgerIcon from '../../assets/icons/burger.svg'
 
-import Modal2 from '../UI/modal-2'
+import Login from '../UI/login'
 
 const Header = () => {
   const { t, i18n } = useTranslation()
@@ -25,8 +25,9 @@ const Header = () => {
 
   const dispatch = useDispatch()
 
-  const { language } = useSelector(state => ({
+  const { language, isLog } = useSelector(state => ({
     language: state.language.language,
+    isLog: state.profile.isLog
   }))
 
 
@@ -62,6 +63,10 @@ const Header = () => {
                   <img src={icon2} alt='phone-icon'/>
                   <div className='phone'>+996 774 728 966</div>
                 </div>
+                {!isLog ?
+                  <button className='btn-auth' onClick={() => setActive(true)}>Войти</button> : 
+                  <NavLink to='/profile' exact className='btn-auth'>Личный кабинет</NavLink>
+                  }
               </div>
               <div className='contacts-right'>
                 <img src={icon3} alt='facebook-icon' className='item'/>
@@ -111,10 +116,13 @@ const Header = () => {
                   </ul>
               </nav>
               <button className='btn' onClick={() => setActive(true)}>Заказать звонок</button>
+              {/* <Button variant="contained" color="secondary" >
+                Заказать звонок
+              </Button> */}
             </div>
           </div>
         </div>
-        <Modal2 active={active} setActive={setActive} close={close} setClose={setClose}/>
+        <Login active={active} setActive={setActive} close={close} setClose={setClose}/>
         <Burger 
           burger={burger}
           setBurger={setBurger}

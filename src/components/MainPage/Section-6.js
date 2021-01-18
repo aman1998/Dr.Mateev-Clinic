@@ -21,7 +21,7 @@ const Section6 = () => {
           <source src={video} type="video/mp4"/>
         </video>
         <div className='btn' onClick={handlePlayVideo}>
-          {!play ? <img src={photo2} alt='play'/> : null}
+          {/* {!play ? <img src={photo2} alt='play'/> : null} */}
         </div>
       </div>
     </section>

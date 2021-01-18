@@ -11,3 +11,8 @@ import {
   FETCH_LOADING
 } from "../actionTypes"
 
+export const checkIsLog = (isLog) => ({
+  type: IS_LOG,
+  isLog
+})
+

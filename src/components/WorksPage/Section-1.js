@@ -1,5 +1,13 @@
+import React, {useEffect} from 'react'
 import { NavLink } from 'react-router-dom';
+import Aos from 'aos'
+import 'aos/dist/aos.css'
+
 const Section1 = () => {
+  useEffect(() => {
+    Aos.init({duration: 700})
+  }, [])
+
   return (
     <section className='section-1'>
       <div className='container'>
@@ -8,7 +16,7 @@ const Section1 = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tristique eget lectus ut id. Aenean aliquet ut vitae nisl, dignissim lectus adipiscing. Id elementum magna viverra cursus ac id pharetra odio aliquam. Et volutpat enim id amet vitae. Id sapien nunc dictumst non quisque euismod. Tristique enim quam arcu elementum pellentesque non. Donec justo sit pharetra tempus. Enim ut risus ut vitae hendrerit lobortis ultricies arcu vitae. Arcu, quam venenatis ullamcorper pharetra ac dignissim integer. Blandit elit cursus odio euismod pellentesque fringilla. Scelerisque integer molestie at dolor hendrerit ornare est tristique. Suspendisse congue nullam bibendum nibh sit pellentesque. Scelerisque libero imperdiet molestie et, cras pellentesque leo, mauris scelerisque.
         </p>
         <div className='views'>
-          <div className='left'>
+          <div className='left' data-aos='fade-right'>
             <div className='view-wrapper'>
               <h2 className='view-title'>Пластические операции</h2>
               <div className='view'>Подтяжка лица</div>
@@ -30,7 +38,7 @@ const Section1 = () => {
               <button className='btn'>Узнать подробнее</button>
             </NavLink>
           </div>
-          <div className='right'>
+          <div className='right' data-aos='fade-left'>
             <div className='view-wrapper'>
               <h2 className='view-title'>Реконструктивные операции</h2>
               <div className='view'>Микрохирургический шов повреждений нервов верхней конечности</div>

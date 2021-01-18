@@ -86,12 +86,14 @@
          }
           .dropdown {
             position: absolute;
+            z-index: 20;
             top: 100%;
             left: 0;
             width: 290px;
             padding: 8px 8px 0 8px;
             background-color: rgb(255, 255, 255);
             transform: translateY(10px);
+            box-shadow: $shadow;
             opacity: 0;
             pointer-events: none;
             transition: 0.5s;
@@ -131,6 +133,19 @@
         align-items: center;
       }
       &-left {
+        .btn-auth {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 7px 0;
+          border: none;
+          outline: none;
+          border-radius: 10px;
+          width: 170px;
+          margin-left: 15px;
+          background: $yellow;
+          cursor: pointer;
+        }
         .item {
           display: flex;
           align-items: center;
@@ -145,7 +160,7 @@
         }
       }
       &-right {
-        margin-left: 120px;
+        margin-left: 50px;
         .item {
           margin-left: 20px;
         }

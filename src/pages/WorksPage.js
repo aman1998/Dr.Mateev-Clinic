@@ -8,10 +8,6 @@ import Section4 from '../components/WorksPage/Section-4'
 
 const WorksPage = () => {
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
-
   return (
     <PageTemplate>
       <div className='worksPage'>

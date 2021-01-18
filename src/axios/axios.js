@@ -1,5 +1,5 @@
 import axios from 'axios'
 
 export default axios.create({
-  baseURL: 'https://api.arenagames.io'
+  baseURL: 'http://195.38.164.24:8080'
 })
