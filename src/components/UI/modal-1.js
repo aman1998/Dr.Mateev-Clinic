@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
 import icon from '../../assets/icons/handshake.svg'
-
+import emailjs from 'emailjs-com';
 import axios from 'axios'
 
 const Modal1 = ({active, setActive}) => {
@@ -38,14 +38,14 @@ const Modal1 = ({active, setActive}) => {
           setLoading(true)
           setError(false)
           setSuccess(false)
-          axios.post('/api/form', {
+          emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
             name: fields.name,
             phone: fields.phone,
             mail: fields.mail,
             view: fields.view
-          })
+          }, 'YOUR_USER_ID')
           .then((res) => {
-            console.log('res',res)
+            console.log('res',res.text)
             setSuccess(true)
             setLoading(false)
           })
@@ -127,3 +127,4 @@ const Modal1 = ({active, setActive}) => {
 }
 
 export default Modal1
+
