@@ -118,6 +118,18 @@
   position: absolute;
   color: #FFFFFF;
   // top: -100%;
+  .signUp {
+    .name {
+      margin-bottom: 8px;
+    }
+    .phone, .phone input {
+      height: 39px;
+      width: 100% !important;
+      @media screen and (max-width: 560px) {
+        width: 100% !important;
+      }
+    }
+  }
   .content2 {
     display: flex;
     flex-direction: column;
@@ -138,6 +150,11 @@
         font-size: 18px;
         line-height: 20px;
       }
+    }
+    .question {
+      font-size: 14px;
+      margin-top: 3px;
+      cursor: pointer;
     }
     p {
       margin: 15px 0 0 0;
@@ -180,7 +197,7 @@
     .btn {
       @include btn;
       width: 100%;
-      margin-top: 35px;
+      margin-top: 25px;
       height: 40px;
     }
   }
@@ -244,6 +261,24 @@
     pointer-events: none;
   }
 }  
+
+.check-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  .check-input {
+    margin: 0 10px 0 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+  }
+}
+.check {
+  @media screen and (max-width: 560px) {
+    font-size: 14px;
+    line-height: 15px;
+  }
+}
 
 
 

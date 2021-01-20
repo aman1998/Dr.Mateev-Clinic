@@ -2,13 +2,13 @@ import React, {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as router, useHistory } from 'react-router-dom';
 
-import { fetchLoginActionCreator } from '../../store/actions/login';
+import { fetchLoginActionCreator } from '../../../store/actions/login';
 
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
 
 
-const Login = ({setAuth}) => {
+const Login = ({setAuth, setActivate, setPhone, setRegistr}) => {
   const {loading, failed, success} = useSelector(state => ({
     loading: state.login.post.loading,
     success: state.login.post.success,
@@ -19,49 +19,55 @@ const Login = ({setAuth}) => {
   const dispatch = useDispatch()
 
   const handleLogin = (body) => {
-    dispatch(fetchLoginActionCreator(body))
+    // dispatch(fetchLoginActionCreator(body))
   }
   
-  const handleHistory = () => {
-    history.push('/profile')
-  }
-
   return (
     <Formik
       initialValues={
         {
-          phone: '',
           password: '',
+          name: '',
+          confirmPassword: '',
+          acceptTerms: false
         }
       }
       validationSchema={
         Yup.object().shape({
-          phone: Yup.string()
-            .required('Введите свой номер'),
+          name: Yup.string()
+            .required('Введите свое имя'),
           password: Yup.string()
             .min(6, 'Минимум 6 символов')
             .required('Введите свой пароль'),
+          confirmPassword: Yup.string()
+          .oneOf([Yup.ref('password'), null], 'Пароли не совпадают!')
+          .required('Это поле обязетельна!'),
+          acceptTerms: Yup.bool().oneOf([true], 'Поставьте галочку!')
         })
       }
       onSubmit ={
         fields => {
-          handleLogin(fields)
-          handleHistory()
+          handleLogin()
         }
       } >
       {() => (
         <div>
-        < div className='title' >Авторизация</div>
-          <p>Войдите в свой личный кабинет
-          </p>
+          <div className='title' >Регистрация</div>
+          <p className='name'>Введите данные</p>
           <Form className='loginForm'>
-            <div className='label'>Телефон</div>
-            <Field type="text" name="phone" className='input'/>
-            <ErrorMessage name="phone" component="div" className='error'/>
+            <div className='label'>Имя</div>
+            <Field type="text" name="name" className='input'/>
+            <ErrorMessage name="name" component="div" className='error'/>
             <div className='label'>Пароль</div>
             <Field type="password" name="password" className='input'/>
             <ErrorMessage name="password" component="div" className='error'/>
-            <div className='question' onClick={() => setAuth(false)}>Вы не зарегистированы?</div>
+            <div className='label'>Подтвердите пароль</div>
+            <Field type="password" name="confirmPassword" className='input'/>
+            <ErrorMessage name="confirmPassword" component="div" className='error'/>
+            <div className='check-wrapper'>
+              <Field type="checkbox" name="acceptTerms" className='check-input'/>
+              <label htmlFor="acceptTerms" className="check">Я согласен с условиями</label>
+            </div>
             <button type="submit" className='btn'>
               {loading ? 
               <div className='loading'></div> : 

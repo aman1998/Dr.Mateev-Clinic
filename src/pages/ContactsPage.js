@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import PageTemplate from '../components/Template/PageTemplate'
 import Section from '../components/ContactsPage/Contacts' 
 import photo from '../assets/img/clinic.png';
-import Message from '../components/UI/message'
+import Map from '../components/Map/Map'
 
 const ContactsPage = () => {
   return (
@@ -10,6 +10,7 @@ const ContactsPage = () => {
       <div className='contactsPage'>
         <img src={photo} alt='photo' className='clinic-photo'/>
         <Section />
+        <Map />
       </div>
     </PageTemplate>
   )

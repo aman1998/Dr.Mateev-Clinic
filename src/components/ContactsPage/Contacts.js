@@ -19,10 +19,12 @@ const Contacts = () => {
   const [error, setError] = useState(false)
   const [active, setActive] = useState(false)
   const [close, setClose] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const sendEmail = (e) => {
     e.preventDefault();
     if(message, name, phone, mail) {
+      setLoading(true)
       emailjs.sendForm('service_3zfy3hm', 'template_acr1a2m', e.target, 'user_dFVSyYAh4SyX3rMu1Yz64')
         .then((result) => {
             console.log(result.text);
@@ -31,8 +33,10 @@ const Contacts = () => {
             setName('')
             setPhone('')
             setMail('')
+            setLoading(false)
         }, (error) => {
             console.log(error.text);
+            setLoading(false)
         });
     }
     else {
@@ -96,7 +100,12 @@ const Contacts = () => {
               onFocus={() => setError(false)}
               onChange={(e) => setMessage(e.target.value)} />
             {error ? <div className='error'>Заполните форму</div> : ''}
-            <input type="submit" value="Send" className='btn'/>
+            {loading ? 
+            <div className='btn'>
+              <div className='loading'></div>
+            </div> :
+            <input type="submit" value="Отправить" className='btn'/>
+          }
           </form>
         </div>
         <div className='right'>

@@ -20,7 +20,7 @@ const initialState = {
     mail: '1998-amangeldi@mail.ru',
     address: ''
   },
-  isLog: true,
+  isLog: false,
   get: {
     success: false,
     loading: false,

@@ -14,7 +14,7 @@ import Burger from '../UI/burger'
 
 import burgerIcon from '../../assets/icons/burger.svg'
 
-import Login from '../UI/login'
+import Auth from '../UI/auth'
 
 const Header = () => {
   const { t, i18n } = useTranslation()
@@ -115,14 +115,14 @@ const Header = () => {
                     <li className='item end'><NavLink to='/contacts' className='link' activeClassName='active' >Контакты</NavLink></li> 
                   </ul>
               </nav>
-              <button className='btn' onClick={() => setActive(true)}>Заказать звонок</button>
-              {/* <Button variant="contained" color="secondary" >
-                Заказать звонок
-              </Button> */}
+              {!isLog ? 
+              <button className='btn' onClick={() => setActive(true)}>Заказать звонок</button> :
+              <NavLink to='/profile' className='btn' >Заказать звонок</NavLink>
+            }
             </div>
           </div>
         </div>
-        <Login active={active} setActive={setActive} close={close} setClose={setClose}/>
+        <Auth active={active} setActive={setActive} close={close} setClose={setClose}/>
         <Burger 
           burger={burger}
           setBurger={setBurger}

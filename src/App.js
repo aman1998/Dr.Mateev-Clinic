@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, Suspense } from 'react'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -19,12 +19,15 @@ import ProfilePage from './pages/ProfilePage'
 import PageNotFound from './pages/404Page'
 import AdminPage from './components/Admin/index'
 
+// const AboutPage2 = React.lazy(() => import('./pages/AboutPage'));
+
 function App() {
   const {isLog} = useSelector(state => ({
     isLog: state.profile.isLog
   }))
   return (
     <BrowserRouter>
+    {/* <Suspense fallback={<div>Загрузка...</div>}> */}
       <Switch>
         <Route path='/' component={MainPage} exact/>
         <Route path='/works' component={WorksPage} exact/>
@@ -43,8 +46,8 @@ function App() {
           : null
         }
         <Route component={PageNotFound} />
-        {/* <Route path='/admin' component={AdminPage} exact/> */}
       </Switch>
+    {/* </Suspense> */}
   </BrowserRouter>
   )
 }
