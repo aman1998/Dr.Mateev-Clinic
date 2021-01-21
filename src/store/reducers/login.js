@@ -1,7 +1,8 @@
 import {
   POST_LOGIN_SUCCESS, 
   POST_LOGIN_LOADING, 
-  POST_LOGIN_FAILED
+  POST_LOGIN_FAILED,
+  POST_LOGIN_DEFAULT
 } from "../actionTypes";
 
 const initialState = {
@@ -42,6 +43,16 @@ const reducer = (state = initialState, action) => {
           success: false,
           loading: false,
           failed: true,
+          error: '',
+        },
+      }
+      case POST_LOGIN_DEFAULT:
+      return {
+        ...state,
+        post: {
+          success: false,
+          loading: false,
+          failed: false,
           error: '',
         },
       }

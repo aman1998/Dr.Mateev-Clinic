@@ -1,6 +1,8 @@
 import React, { useEffect, Suspense } from 'react'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux'
+
+import { fetchProfileActionCreator } from './store/actions/profile';
 
 import './assets/style/styles.scss'
 
@@ -22,12 +24,21 @@ import AdminPage from './components/Admin/index'
 // const AboutPage2 = React.lazy(() => import('./pages/AboutPage'));
 
 function App() {
-  const {isLog} = useSelector(state => ({
-    isLog: state.profile.isLog
+  const {isLog, token} = useSelector(state => ({
+    isLog: state.profile.isLog,
+    token: state.profile.token
   }))
+  
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (token) {
+      dispatch(fetchProfileActionCreator())
+    }
+  }, [token]) // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
     <BrowserRouter>
-    {/* <Suspense fallback={<div>Загрузка...</div>}> */}
       <Switch>
         <Route path='/' component={MainPage} exact/>
         <Route path='/works' component={WorksPage} exact/>
@@ -47,7 +58,6 @@ function App() {
         }
         <Route component={PageNotFound} />
       </Switch>
-    {/* </Suspense> */}
   </BrowserRouter>
   )
 }

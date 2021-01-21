@@ -21,6 +21,7 @@ const initialState = {
     address: ''
   },
   isLog: false,
+  token: localStorage.getItem('token') || false,
   get: {
     success: false,
     loading: false,
@@ -35,12 +36,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         token: localStorage.getItem('token'),
-        myProfile: action.payload
-      }
-    case GET_TOKEN:
-      return {
-        ...state,
-        token: localStorage.getItem('token'),
+        info: action.payload
       }
     case GET_BALANCE:
       return {

@@ -47,7 +47,12 @@ const Header = () => {
             <div className='logo'></div>
           </NavLink>
           <div className='mobile'>
-            <button className='btn btn-mob' onClick={() => setActive(true)}>Заказать звонок</button>
+            {!isLog ? 
+              <button className='btn btn-mob' onClick={() => setActive(true)}>Заказать звонок</button> :
+              <NavLink to='/profile' className='btn btn-mob' >
+                <button className='btn'>Заказать звонок</button>
+              </NavLink>
+            }
             <img src={burgerIcon} alt='burger' className='burger-icon' onClick={() => setBurger(true)}/>
           </div>
           <div className='content'>
@@ -117,7 +122,9 @@ const Header = () => {
               </nav>
               {!isLog ? 
               <button className='btn' onClick={() => setActive(true)}>Заказать звонок</button> :
-              <NavLink to='/profile' className='btn' >Заказать звонок</NavLink>
+              <NavLink to='/profile' className='btn' >
+                <button className='btn'>Заказать звонок</button>
+              </NavLink>
             }
             </div>
           </div>

@@ -1,63 +1,72 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
-import {Formik, Form, Field, ErrorMessage} from 'formik'
-import * as Yup from 'yup'
-import icon from '../../assets/icons/handshake.svg'
-import emailjs from 'emailjs-com';
-import axios from 'axios'
+import {Formik, Form, Field, ErrorMessage} from 'formik';
+import * as Yup from 'yup';
+import icon from '../../assets/icons/handshake.svg';
+import PhoneInput from 'react-phone-input-2';
+
+import { POST_LOGIN_DEFAULT } from '../../store/actionTypes';
+import { fetchLoginActionCreator } from '../../store/actions/login';
 
 const Modal1 = ({active, setActive}) => {
-  const [loading, setLoading] = useState(false)
-  const [success, setSuccess] = useState(false)
+  const {loading, failed, success} = useSelector(state => ({
+    loading: state.login.post.loading,
+    success: state.login.post.success,
+    failed: state.login.post.failed,
+  }))
   const [error, setError] = useState(false)
+  const [phone, setPhone] = useState('')
+
+  const dispatch = useDispatch()
+  const history = useHistory()
+
+  const handleLogin = (body) => {
+    dispatch(fetchLoginActionCreator(body))
+  }
+
+  const handleHistory = () => {
+    history.push('/profile')
+  }
+
+  const removeError = () => {
+    setError(false)
+  }
+
+  const closeModal = () => {
+    setActive(false)
+    dispatch({ type: POST_LOGIN_DEFAULT })
+  }
 
   return (
     <Formik
       initialValues={
         {
-          name: '',
-          mail: '',
-          phone: '',
-          view: 'Подтяжка лица',
-          acceptTerms: false
+          password: ''
         }
       }
       validationSchema={
         Yup.object().shape({
-          name: Yup.string()
-            .required('Напишите свое имя'),
-          phone: Yup.string()
-            .required('Введите свой номер'),
-          mail: Yup.string()
-          .required('Напишите свою почту'),
-          acceptTerms: Yup.bool().oneOf([true], 'Поставьте галочку')
+          password: Yup.string()
+            .min(6, 'Минимально 6 символов')
+            .required('Это поле обязательна'),
         })
       }
       onSubmit = {
         fields => {
-          setLoading(true)
-          setError(false)
-          setSuccess(false)
-          emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
-            name: fields.name,
-            phone: fields.phone,
-            mail: fields.mail,
-            view: fields.view
-          }, 'YOUR_USER_ID')
-          .then((res) => {
-            console.log('res',res.text)
-            setSuccess(true)
-            setLoading(false)
-          })
-          .catch((e) => {
-            setLoading(false)
-            setSuccess(false)
+          if(phone) {
+            fields.phone = phone;
+            handleLogin(fields)
+            // handleHistory()
+          }
+          else {
             setError(true)
-          })
+          }
         }
       } >
       {() => (
-        <section className={active ? 'modal active' : 'modal'} onClick={() => setActive(false)}>
+        <section className={active ? 'modal active' : 'modal'} onClick={closeModal}>
         <div className={active ? 'content active' : 'content'} onClick={e => e.stopPropagation()}>
           { success ? 
           <div className='success'>
@@ -69,50 +78,27 @@ const Modal1 = ({active, setActive}) => {
           </div>
           :
           <div>
-            <div className='title'>Закажите консультацию</div>
-            <p>C вами cвяжутся в ближайшие 
-              время и подробно проконсультируют!
-            </p>
+            <div className='title'>Авторизация</div>
+            <p className='text'>Чтобы записаться на бесплатную консультацию войдите на сайт</p>
             <Form className='loginForm'>
-              <div className='label'>Имя</div>
-              <Field type="text" name="name" className='input'/>
-              <ErrorMessage name="name" component="div" className='error'/>
-              <div className='label'>Mail</div>
-              <Field type="text" name="mail" className='input'/>
-              <ErrorMessage name="mail" component="div" className='error'/>
-              <div className='label'>Телефон</div>
-              <Field type="text" name="phone" className='input'/>
-              <ErrorMessage name="phone" component="div" className='error'/>
-              <div className='label'>Выбрать вид операции </div>
-              <Field as="select" name="view" className='input'>
-                <option value="Подтяжка лица">Подтяжка лица</option>
-                <option value="Пластика век">Пластика век</option>
-                <option value="Контурная пластика губ">Контурная пластика губ</option>
-                <option value="Липосакция">Липосакция</option>
-                <option value="Пластика живота">Пластика живота</option>
-                <option value="Пластика груди">Пластика груди</option>
-                <option value="Пластика дефектов после огнестрельных ранений">Пластика дефектов после огнестрельных ранений</option>
-                <option value="Пластика заячьей губы">Пластика заячьей губы</option>
-                <option value="Пластика послеоперационных рубцов">Пластика послеоперационных рубцов</option>
-                <option value="Пластика травматических дефектов">Пластика травматических дефектов</option>
-                <option value="Пластика послеожоговых контрактур">Пластика послеожоговых контрактур</option>
-                <option value="Пластика врожденных ложных суставов">Пластика врожденных ложных суставов</option>
-                <option value="Пластика дефектов после удаления опухолей">Пластика дефектов после удаления опухолей</option>
-                <option value="Эндопротезирование груди силиконовыми имплантами">Эндопротезирование груди силиконовыми имплантами</option>
-                <option value="Микрохирургический шов повреждений нервов верхней конечности">Микрохирургический шов повреждений нервов верхней конечности</option>
-                <option value="Микрохирургический шов сухожилий кисти">Микрохирургический шов сухожилий кисти</option>
-                <option value="Хирургическое лечение болей в  кисти">Хирургическое лечение болей в  кисти</option>
-                <option value="Хирургическая коррекция деформаций конечностей при ДЦП детей">Хирургическая коррекция деформаций конечностей при ДЦП детей</option>
-              </Field>
-              <div className='check-wrapper'>
-                <Field type="checkbox" name="acceptTerms" className='check-input'/>
-                <label htmlFor="acceptTerms" className="check">Я ознакомлен с условиями пользования</label>
-              </div>
-              <ErrorMessage name="acceptTerms" component="div" className='error'/>
-              <button type="submit" className='btn'>
+              <PhoneInput
+                country='kg'
+                onlyCountries={['kg']}
+                disableDropdown
+                containerClass='phone'
+                value={phone}
+                onChange={setPhone}
+                onFocus={removeError}
+                className='loginPhone'
+              />
+              {error ? <div className='error'>Ошибка ввода</div> : null}
+              <div className='label'>Пароль</div>
+              <Field type="text" name="password" className='input' />
+              <ErrorMessage name='password' component="div" className='error'/>
+              <button type="submit" className='btn' style={failed ? {background: 'red'} : null}>
                 {loading ? 
                   <div className='loading'></div> : 
-                error ? 
+                failed ? 
                   <div className='btn-error'>{'Ошибка'}</div> : 
                   'Оправить'}
               </button>

@@ -1,25 +1,31 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter as router, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { fetchLoginActionCreator } from '../../store/actions/login';
-
-import {Formik, Form, Field, ErrorMessage} from 'formik'
+import PhoneInput from 'react-phone-input-2';
+import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup'
 
-
-const Login = ({setAuth}) => {
+const Login = ({setAuth, closeModal}) => {
   const {loading, failed, success} = useSelector(state => ({
     loading: state.login.post.loading,
     success: state.login.post.success,
     failed: state.login.post.failed,
   }))
 
+  const [error, setError] = useState(false)
+  const [phone, setPhone] = useState('')
+
   const history = useHistory()
   const dispatch = useDispatch()
 
   const handleLogin = (body) => {
     dispatch(fetchLoginActionCreator(body))
+  }
+
+  const removeError = () => {
+    setError(false)
   }
   
   const handleHistory = () => {
@@ -30,14 +36,11 @@ const Login = ({setAuth}) => {
     <Formik
       initialValues={
         {
-          phone: '',
           password: '',
         }
       }
       validationSchema={
         Yup.object().shape({
-          phone: Yup.string()
-            .required('Введите свой номер'),
           password: Yup.string()
             .min(6, 'Минимум 6 символов')
             .required('Введите свой пароль'),
@@ -45,28 +48,42 @@ const Login = ({setAuth}) => {
       }
       onSubmit ={
         fields => {
-          handleLogin(fields)
-          handleHistory()
+          if(phone) {
+            fields.phone = phone;
+            handleLogin(fields, closeModal)
+            closeModal()
+            // handleHistory()
+          }
+          else {
+            setError(true)
+          }
         }
       } >
       {() => (
         <div>
         < div className='title' >Авторизация</div>
-          <p>Войдите в свой личный кабинет
-          </p>
           <Form className='loginForm'>
-            <div className='label'>Телефон</div>
-            <Field type="text" name="phone" className='input'/>
-            <ErrorMessage name="phone" component="div" className='error'/>
+            <p style={{marginBottom: '10px'}}>Войдите в свой личный кабинет</p>
+            <PhoneInput
+              country='kg'
+              onlyCountries={['kg']}
+              disableDropdown
+              containerClass='phone'
+              value={phone}
+              onChange={setPhone}
+              onFocus={removeError}
+              className='loginPhone'
+            />
+            {error ? <div className='error'>Ошибка ввода</div> : null}
             <div className='label'>Пароль</div>
             <Field type="password" name="password" className='input'/>
             <ErrorMessage name="password" component="div" className='error'/>
             <div className='question' onClick={() => setAuth(false)}>Вы не зарегистированы?</div>
-            <button type="submit" className='btn'>
+            <button type="submit" className='btn' style={failed ? {background: 'red'} : null}>
               {loading ? 
               <div className='loading'></div> : 
             failed ? 
-              <div className='btn-error'>{'Ошибка'}</div> : 
+              <div className='btn-error'>{'Повторить'}</div> : 
               'Оправить'}
             </button>
           </Form>
