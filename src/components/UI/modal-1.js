@@ -1,72 +1,56 @@
 import React, {useState} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector} from 'react-redux';
+import { fetchAppliactionActionCreator } from '../../store/actions/appliaction';
 
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
 import icon from '../../assets/icons/handshake.svg';
-import PhoneInput from 'react-phone-input-2';
-
-import { POST_LOGIN_DEFAULT } from '../../store/actionTypes';
-import { fetchLoginActionCreator } from '../../store/actions/login';
 
 const Modal1 = ({active, setActive}) => {
-  const {loading, failed, success} = useSelector(state => ({
-    loading: state.login.post.loading,
-    success: state.login.post.success,
-    failed: state.login.post.failed,
-  }))
   const [error, setError] = useState(false)
+  const [message, setMessage] = useState('')
   const [phone, setPhone] = useState('')
 
+  const {loading, failed, success} = useSelector(state => ({
+    loading: state.application.post.loading,
+    success: state.application.post.success,
+    failed: state.application.post.failed,
+  }))
+
   const dispatch = useDispatch()
-  const history = useHistory()
-
-  const handleLogin = (body) => {
-    dispatch(fetchLoginActionCreator(body))
-  }
-
-  const handleHistory = () => {
-    history.push('/profile')
-  }
-
-  const removeError = () => {
-    setError(false)
-  }
-
-  const closeModal = () => {
-    setActive(false)
-    dispatch({ type: POST_LOGIN_DEFAULT })
-  }
 
   return (
     <Formik
       initialValues={
         {
-          password: ''
+          fio: '',
+          phone: '',
+          oper: 'PL',
         }
       }
       validationSchema={
         Yup.object().shape({
-          password: Yup.string()
-            .min(6, 'Минимально 6 символов')
-            .required('Это поле обязательна'),
+          fio: Yup.string()
+            .required('Напишите свое имя'),
+          phone: Yup.string()
+            .required('Введите свой номер'),
         })
       }
       onSubmit = {
         fields => {
-          if(phone) {
-            fields.phone = phone;
-            handleLogin(fields)
-            // handleHistory()
+          if(message !== '') {
+            dispatch(fetchAppliactionActionCreator({
+              fio: fields.fio,
+              phone: fields.phone,
+              oper: fields.oper,
+              message: message
+            }))
           }
-          else {
-            setError(true)
-          }
+          else setError(true)
         }
       } >
       {() => (
-        <section className={active ? 'modal active' : 'modal'} onClick={closeModal}>
+        <section className={active ? 'modal active' : 'modal'} onClick={() => setActive(false)}>
         <div className={active ? 'content active' : 'content'} onClick={e => e.stopPropagation()}>
           { success ? 
           <div className='success'>
@@ -78,24 +62,44 @@ const Modal1 = ({active, setActive}) => {
           </div>
           :
           <div>
-            <div className='title'>Авторизация</div>
-            <p className='text'>Чтобы записаться на бесплатную консультацию войдите на сайт</p>
+            <div className='title'>Закажите консультацию</div>
+            <p>C вами cвяжутся в ближайшие 
+              время и подробно проконсультируют!
+            </p>
             <Form className='loginForm'>
-              <PhoneInput
-                country='kg'
-                onlyCountries={['kg']}
-                disableDropdown
-                containerClass='phone'
-                value={phone}
-                onChange={setPhone}
-                onFocus={removeError}
-                className='loginPhone'
-              />
-              {error ? <div className='error'>Ошибка ввода</div> : null}
-              <div className='label'>Пароль</div>
-              <Field type="text" name="password" className='input' />
-              <ErrorMessage name='password' component="div" className='error'/>
-              <button type="submit" className='btn' style={failed ? {background: 'red'} : null}>
+              <Field type="text" name="fio" className='input' placeholder='Имя'/>
+              <ErrorMessage name="fio" component="div" className='error'/>
+              <Field type="text" name="phone" className='input' placeholder='+996555112233'/>
+              <ErrorMessage name="phone" component="div" className='error'/>
+              <Field as="select" name="oper" className='input'>
+                <option value="PL">Подтяжка лица</option>
+                <option value="PV">Пластика век</option>
+                <option value="KPG">Контурная пластика губ</option>
+                <option value="L">Липосакция</option>
+                <option value="PJ">Пластика живота</option>
+                <option value="PG">Пластика груди</option>
+                <option value="PR">Пластика дефектов после огнестрельных ранений</option>
+                <option value="PZ">Пластика заячьей губы</option>
+                <option value="PPR">Пластика послеоперационных рубцов</option>
+                <option value="PTD">Пластика травматических дефектов</option>
+                <option value="PPK">Пластика послеожоговых контрактур</option>
+                <option value="PLS">Пластика врожденных ложных суставов</option>
+                <option value="PDP">Пластика дефектов после удаления опухолей</option>
+                <option value="EGS">Эндопротезирование груди силиконовыми имплантами</option>
+                <option value="MSN">Микрохирургический шов повреждений нервов верхней конечности</option>
+                <option value="MSS">Микрохирургический шов сухожилий кисти</option>
+                <option value="XS">Хирургическое лечение болей в  кисти</option>
+                <option value="XKS">Хирургическая коррекция деформаций конечностей при ДЦП детей</option>
+              </Field>
+              <textarea 
+                className='input input-text' 
+                name='message' 
+                value={message}
+                placeholder='Сообщение'
+                onFocus={() => setError(false)}
+                onChange={(e) => setMessage(e.target.value)} />
+              {error ? <div className='error'>Заполните форму</div> : ''}
+              <button type="submit" className='btn'>
                 {loading ? 
                   <div className='loading'></div> : 
                 failed ? 
@@ -113,4 +117,3 @@ const Modal1 = ({active, setActive}) => {
 }
 
 export default Modal1
-

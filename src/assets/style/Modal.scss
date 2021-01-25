@@ -61,7 +61,12 @@
       height: 40px;
       outline: none;
       padding: 0 10px;
-      font-size: 16px;
+      font-size: 15px;
+      margin-top: 8px;
+      @media screen and (max-width: 560px) {
+        font-size: 14px;
+        line-height: 16px;
+      }
     }
     .label {
       margin: 10px 0 5px 0;
@@ -164,7 +169,7 @@
       line-height: 22px;
       @media screen and (max-width: 560px) {
         font-size: 16px;
-        line-height: 28px;
+        line-height: 18px;
       }
     }
     .input {
@@ -174,7 +179,12 @@
       height: 40px;
       outline: none;
       padding: 0 10px;
-      font-size: 16px;
+      font-size: 15px;
+      margin-top: 10px;
+      @media screen and (max-width: 560px) {
+        font-size: 14px;
+        line-height: 16px;
+      }
     }
     .label {
       margin: 10px 0 5px 0;
@@ -282,6 +292,11 @@
 }
 
 .loginForm {
+  .input-text {
+    height: 100px !important;
+    margin-top: 10px;
+    padding: 10px !important;
+  }
   .phone, .phone input {
     height: 39px;
     width: 100% !important;

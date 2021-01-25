@@ -1,43 +1,37 @@
-import photo from '../../assets/img/clinic.png'
-import emailjs from 'emailjs-com';
-import { useState } from 'react'
+import React, {useState} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchMessageActionCreator } from '../../store/actions/message';
 
-import icon1 from '../../assets/icons/phone.svg'
-import icon2 from '../../assets/icons/message.svg'
-import icon3 from '../../assets/icons/map.svg'
-import icon4 from '../../assets/icons/facebook.svg'
-import icon5 from '../../assets/icons/twitter.svg'
-import icon6 from '../../assets/icons/instagram.svg'
+import icon1 from '../../assets/icons/phone.svg';
+import icon2 from '../../assets/icons/message.svg';
+import icon3 from '../../assets/icons/map.svg';
+import icon4 from '../../assets/icons/facebook.svg';
+import icon5 from '../../assets/icons/twitter.svg';
+import icon6 from '../../assets/icons/instagram.svg';
 
 import Message from '../UI/message';
+import photo from '../../assets/img/clinic.png';
 
 const Contacts = () => {
   const [message, setMessage] = useState('')
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
-  const [mail, setMail] = useState('')
+  const [email, setMail] = useState('')
   const [error, setError] = useState(false)
   const [active, setActive] = useState(false)
   const [close, setClose] = useState(false)
-  const [loading, setLoading] = useState(false)
+
+  const {loading, failed, success} = useSelector(state => ({
+    loading: state.message.post.loading,
+    success: state.message.post.success,
+    failed: state.message.post.failed,
+  }))
+  const dispatch = useDispatch()
 
   const sendEmail = (e) => {
     e.preventDefault();
-    if(message, name, phone, mail) {
-      setLoading(true)
-      emailjs.sendForm('service_3zfy3hm', 'template_acr1a2m', e.target, 'user_dFVSyYAh4SyX3rMu1Yz64')
-        .then((result) => {
-            console.log(result.text);
-            setActive(true)
-            setMessage('')
-            setName('')
-            setPhone('')
-            setMail('')
-            setLoading(false)
-        }, (error) => {
-            console.log(error.text);
-            setLoading(false)
-        });
+    if(message, name, phone, email) {
+     dispatch(fetchMessageActionCreator(name, phone, email, message, setActive))
     }
     else {
       setError(true)
@@ -49,14 +43,14 @@ const Contacts = () => {
     <section className='contacts'>
       {/* <img src={photo} alt='photo' className='clinic-photo'/> */}
       <div className='container'>
-        <h1 className='title'>Контакты</h1>
+        <h1 className='contact-title '>Контакты</h1>
         <p className='text'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tristique eget lectus ut id. Aenean aliquet ut vitae nisl, dignissim lectus adipiscing. Id elementum magna viverra cursus ac id pharetra odio aliquam. Et volutpat enim id amet vitae. Id sapien nunc dictumst non quisque euismod. Tristique enim quam arcu elementum pellentesque non. Donec justo sit pharetra tempus. Enim ut risus ut vitae hendrerit lobortis ultricies arcu vitae. Arcu, quam venenatis ullamcorper pharetra ac dignissim integer. Blandit elit cursus odio euismod pellentesque fringilla. Scelerisque integer molestie at dolor hendrerit ornare est tristique. 
+          Если у вас есть дополнительные вопросы по клинике, сайту, видам операции и так далее, то напишите нам, и мы постараемся как можно быстрее ответить вам. Если же хотите записаться на консультацию то нажмите на кнопку "Оставить заявку".
         </p>
       </div>
       <div className='container form'>
         <div className='left'>
-          <div className='title'>Закажите консультацию</div>
+          <div className='title'>Задайте вопрос</div>
           <form className="contact-form" className='loginForm' onSubmit={sendEmail}>
           <div className='input-wrapper'>
               <div className='wrapper'>
@@ -86,9 +80,9 @@ const Contacts = () => {
             <div className='label' className='name'>Mail</div>
             <input 
               type='email' 
-              name="mail" 
+              name="email" 
               className='input'
-              value={mail}
+              value={email}
               onFocus={() => setError(false)}
               onChange={(e) => setMail(e.target.value)}
               />

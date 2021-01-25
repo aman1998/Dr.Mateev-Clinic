@@ -40,6 +40,9 @@
         // height: 30px;
         margin-right: 26px;
       }
+      @media screen and (max-width: 560px) {
+        margin-right: 15px;
+      }
     }
     .burger {
       width: 32px;

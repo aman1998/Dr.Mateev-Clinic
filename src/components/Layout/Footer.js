@@ -24,8 +24,8 @@ const Footer = () => {
           <nav className='nav-2'>
             <div>Информация</div>
             <NavLink to='/' className='item'>FAQ</NavLink>
-            <NavLink to='/about' className='item'>Политика пользования</NavLink>
-            <NavLink to='/portfolio' className='item'>Политика конфидициальности</NavLink>
+            {/* <NavLink to='/about' className='item'>Политика пользования</NavLink>
+            <NavLink to='/portfolio' className='item'>Политика конфидициальности</NavLink> */}
           </nav>
           <div className='nav-3'>
             <div>Свяжитесь с нами</div>

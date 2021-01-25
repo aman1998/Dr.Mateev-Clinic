@@ -14,7 +14,7 @@ import Burger from '../UI/burger'
 
 import burgerIcon from '../../assets/icons/burger.svg'
 
-import Auth from '../UI/auth'
+import Modal from '../UI/modal-2'
 
 const Header = () => {
   const { t, i18n } = useTranslation()
@@ -25,9 +25,8 @@ const Header = () => {
 
   const dispatch = useDispatch()
 
-  const { language, isLog } = useSelector(state => ({
+  const { language } = useSelector(state => ({
     language: state.language.language,
-    isLog: state.profile.isLog
   }))
 
 
@@ -47,12 +46,7 @@ const Header = () => {
             <div className='logo'></div>
           </NavLink>
           <div className='mobile'>
-            {!isLog ? 
-              <button className='btn btn-mob' onClick={() => setActive(true)}>Заказать звонок</button> :
-              <NavLink to='/profile' className='btn btn-mob' >
-                <button className='btn'>Заказать звонок</button>
-              </NavLink>
-            }
+            <button className='btn btn-mob' onClick={() => setActive(true)}>Оставить заявку</button> 
             <img src={burgerIcon} alt='burger' className='burger-icon' onClick={() => setBurger(true)}/>
           </div>
           <div className='content'>
@@ -68,10 +62,6 @@ const Header = () => {
                   <img src={icon2} alt='phone-icon'/>
                   <div className='phone'>+996 774 728 966</div>
                 </div>
-                {!isLog ?
-                  <button className='btn-auth' onClick={() => setActive(true)}>Войти</button> : 
-                  <NavLink to='/profile' exact className='btn-auth'>Личный кабинет</NavLink>
-                  }
               </div>
               <div className='contacts-right'>
                 <img src={icon3} alt='facebook-icon' className='item'/>
@@ -120,16 +110,11 @@ const Header = () => {
                     <li className='item end'><NavLink to='/contacts' className='link' activeClassName='active' >Контакты</NavLink></li> 
                   </ul>
               </nav>
-              {!isLog ? 
-              <button className='btn' onClick={() => setActive(true)}>Заказать звонок</button> :
-              <NavLink to='/profile' className='btn' >
-                <button className='btn'>Заказать звонок</button>
-              </NavLink>
-            }
+              <button className='btn' onClick={() => setActive(true)}>Оставить заявку</button> 
             </div>
           </div>
         </div>
-        <Auth active={active} setActive={setActive} close={close} setClose={setClose}/>
+        <Modal active={active} setActive={setActive} close={close} setClose={setClose}/>
         <Burger 
           burger={burger}
           setBurger={setBurger}

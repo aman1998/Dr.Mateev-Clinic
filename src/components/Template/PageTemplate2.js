@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import PageTemplate from './PageTemplate'
 import CallBlock from '../MainPage/Section-4'
 
-import photo from '../../assets/img/clinic.png'
+import photo from '../../assets/img/banner.jpg'
 
 import Aos from 'aos'
 import 'aos/dist/aos.css'

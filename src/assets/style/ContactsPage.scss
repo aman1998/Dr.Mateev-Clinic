@@ -3,7 +3,7 @@
 .contactsPage {
   .contacts {
     margin-bottom: 80px;
-    .title {
+    .contact-title {
       @include title
     }
     .text {
@@ -43,6 +43,9 @@
             margin-left: 10px;
             font-size: 20px;
             line-height: 26px;
+            @media screen and (max-width: 560px) {
+              font-size: 14px;
+             }
           }
           .mail {
             margin-left: 20px;
@@ -91,6 +94,9 @@
           font-size: 16px;
           line-height: 19px;
           color: rgba(0, 0, 0, 0.6);
+          @media screen and (max-width: 560px) {
+            font-size: 14px;
+           }
         }
         .input-text {
           height: 200px;
@@ -106,9 +112,15 @@
         .input-wrapper {
           display: flex;
           justify-content: space-between;
+          @media screen and (max-width: 560px) {
+            flex-direction: column;
+          }
           .wrapper {
             max-width: 250px;
             width: 100%;
+            @media screen and (max-width: 560px) {
+              max-width: 100%;
+            }
             .input {
               width: 100%;
             }
