@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
 import { useSelector } from 'react-redux';
 import Loader from '../Loader/Loader';
 import Carousel from "react-elastic-carousel";
 
+import { useTranslation } from 'react-i18next';
+
 const Section5 = () => {
+  const { t } = useTranslation()
   const {reviews, success, failed, loading} = useSelector(state => ({
     reviews: state.reviews.reviews,
     loading: state.reviews.get.loading,
@@ -20,7 +23,7 @@ const breakPoints = [
   return (
     <section className='section-5'>
       <div className='container'>
-        <h2 className='title'>Отзывы клиентов</h2>
+        <h2 className='title'>{t('title.3')}</h2>
         {
           success ? 
           <Carousel 

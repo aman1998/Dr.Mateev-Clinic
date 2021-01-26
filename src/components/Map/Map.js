@@ -14,7 +14,7 @@ const MapPage = () => (
       <Map 
         defaultState={{ center: [42.867439, 74.602587], zoom: 18,  }} 
         width='100%' 
-        height='500px'>
+        height='400px'>
            <Placemark geometry={[42.867439, 74.602587]}/>
         </Map>
       </div>

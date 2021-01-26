@@ -48,6 +48,18 @@
         color: #ffffff;
         font-weight: normal;
         margin-bottom: 10px;
+        position: relative;
+        .dropdown {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          opacity: 0;
+          transform: 500ms;
+        }
+        .dropdown-active {
+          transform: translate(0,0);
+          opacity: 1;
+        }
       }
       .faq {
         padding-bottom: 12px;

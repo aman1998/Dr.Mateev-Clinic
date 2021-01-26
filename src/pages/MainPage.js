@@ -13,8 +13,8 @@ import Section6 from '../components/MainPage/Section-6';
 import Section7 from '../components//Map/Map';
 import Section8 from '../components/ContactsPage/Contacts';
 
-import Aos from 'aos'
-import 'aos/dist/aos.css'
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const MainPage = () => {
   const {reviews} = useSelector(state => ({
@@ -46,7 +46,7 @@ const MainPage = () => {
             <div data-aos='fade-top'>
               <Section5 />
             </div>
-            <Section6 />
+            {/* <Section6 /> */}
             <div className='contactsPage'>
               <Section8 />
             </div>

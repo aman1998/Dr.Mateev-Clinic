@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchMessageActionCreator } from '../../store/actions/message';
 
+import { useTranslation } from 'react-i18next';
+
 import icon1 from '../../assets/icons/phone.svg';
 import icon2 from '../../assets/icons/message.svg';
 import icon3 from '../../assets/icons/map.svg';
@@ -13,6 +15,7 @@ import Message from '../UI/message';
 import photo from '../../assets/img/clinic.png';
 
 const Contacts = () => {
+  const { t } = useTranslation()
   const [message, setMessage] = useState('')
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
@@ -43,18 +46,16 @@ const Contacts = () => {
     <section className='contacts'>
       {/* <img src={photo} alt='photo' className='clinic-photo'/> */}
       <div className='container'>
-        <h1 className='contact-title '>Контакты</h1>
-        <p className='text'>
-          Если у вас есть дополнительные вопросы по клинике, сайту, видам операции и так далее, то напишите нам, и мы постараемся как можно быстрее ответить вам. Если же хотите записаться на консультацию то нажмите на кнопку "Оставить заявку".
-        </p>
+        <h1 className='contact-title '>{t('title.4')}</h1>
+        <p className='text'>{t('text.4')}</p>
       </div>
       <div className='container form'>
         <div className='left'>
-          <div className='title'>Задайте вопрос</div>
+          <div className='title'>{t('title.13')}</div>
           <form className="contact-form" className='loginForm' onSubmit={sendEmail}>
           <div className='input-wrapper'>
               <div className='wrapper'>
-                <div className='label' className='name'>Имя</div>
+                <div className='label' className='name'>{t('inputs.1')}</div>
                 <input 
                   type="text" 
                   name="name" 
@@ -65,7 +66,7 @@ const Contacts = () => {
                   />
               </div>
               <div className='wrapper'>
-                <div className='label' className='name'>Телефон</div>
+                <div className='label' className='name'>{t('inputs.4')}</div>
                 <input 
                   type="text" 
                   name="phone" 
@@ -77,7 +78,7 @@ const Contacts = () => {
                   />
               </div>
             </div>
-            <div className='label' className='name'>Mail</div>
+            <div className='label' className='name'>{t('inputs.2')}</div>
             <input 
               type='email' 
               name="email" 
@@ -86,19 +87,19 @@ const Contacts = () => {
               onFocus={() => setError(false)}
               onChange={(e) => setMail(e.target.value)}
               />
-            <div className='label' className='name'>Сообщение</div>
+            <div className='label' className='name'>{t('inputs.3')}</div>
             <textarea 
               className='input input-text' 
               name='message' 
               value={message}
               onFocus={() => setError(false)}
               onChange={(e) => setMessage(e.target.value)} />
-            {error ? <div className='error'>Заполните форму</div> : ''}
+            {error ? <div className='error'>{t('inputs.7')}</div> : ''}
             {loading ? 
             <div className='btn'>
               <div className='loading'></div>
             </div> :
-            <input type="submit" value="Отправить" className='btn'/>
+            <input type="submit" value={t('btns.3')} className='btn'/>
           }
           </form>
         </div>
@@ -113,7 +114,7 @@ const Contacts = () => {
           </div>
           <div className='item'>
             <img src={icon3} alt='icon' className='icon'/>
-            <div className='value mail'>Кыргызстан, г. Бишкек, ул.Бокомбаева 115</div>
+            <div className='value mail'>{t('contacts.2')}</div>
           </div>
           <div className='line'></div>
           <div className='links'>

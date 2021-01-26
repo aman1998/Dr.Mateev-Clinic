@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import PageTemplate from "../components/Template/PageTemplate2"
 
 import Section1 from '../components/WorksPage/PlasticPage/Section-1'
-import Section2 from '../components/WorksPage/PlasticPage/Section-2'
+import Section2 from '../components/WorksPage/Section-2'
 
 const WorksPage = () => {
 

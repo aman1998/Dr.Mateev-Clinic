@@ -1,20 +1,21 @@
-import React, {useState, useEffect} from 'react'
-import { NavLink } from 'react-router-dom'
+import React, {useState, useEffect} from 'react';
+import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getLanguage } from "../../store/actions/language"
-import { useTranslation } from 'react-i18next'
+import { getLanguage } from "../../store/actions/language";
 
-import icon1 from '../../assets/icons/map.svg'
-import icon2 from '../../assets/icons/phone.svg'
-import icon3 from '../../assets/icons/facebook.svg'
-import icon4 from '../../assets/icons/twitter.svg'
-import icon5 from '../../assets/icons/instagram.svg'
+import { useTranslation } from 'react-i18next';
 
-import Burger from '../UI/burger'
+import icon1 from '../../assets/icons/map.svg';
+import icon2 from '../../assets/icons/phone.svg';
+import icon3 from '../../assets/icons/facebook.svg';
+import icon4 from '../../assets/icons/twitter.svg';
+import icon5 from '../../assets/icons/instagram.svg';
 
-import burgerIcon from '../../assets/icons/burger.svg'
+import Burger from '../UI/burger';
 
-import Modal from '../UI/modal-2'
+import burgerIcon from '../../assets/icons/burger.svg';
+
+import Modal from '../UI/modal-2';
 
 const Header = () => {
   const { t, i18n } = useTranslation()
@@ -46,16 +47,16 @@ const Header = () => {
             <div className='logo'></div>
           </NavLink>
           <div className='mobile'>
-            <button className='btn btn-mob' onClick={() => setActive(true)}>Оставить заявку</button> 
+            <button className='btn btn-mob' onClick={() => setActive(true)}>{t('btns.1')}</button> 
             <img src={burgerIcon} alt='burger' className='burger-icon' onClick={() => setBurger(true)}/>
           </div>
           <div className='content'>
             <div className='contacts'>
               <div className='contacts-left'>
-                <div className='faq'>FAQ</div>
+                {/* <div className='faq'>FAQ</div> */}
                 <div className='item'>
                   <img src={icon1} alt='map-icon'/>
-                  <div className='address'>Кыргызстан, г. Бишкек, ул.Бокомбаева 115</div>
+                  <div className='address'>{t('contacts.2')}</div>
                 </div>
                 <div className='line'></div>
                 <div className='item'>
@@ -79,38 +80,38 @@ const Header = () => {
             <div className='navigation'>
               <nav className='nav'>
                   <ul>
-                    <li className='item'><NavLink to='/' className='link' activeClassName='active' exact>Главное</NavLink></li>
-                    <li className='item'><NavLink to='/about' className='link' activeClassName='active' exact>О клинике</NavLink></li>
+                    <li className='item'><NavLink to='/' className='link' activeClassName='active' exact>{t('nav.1')}</NavLink></li>
+                    <li className='item'><NavLink to='/about' className='link' activeClassName='active' exact>{t('nav.2')}</NavLink></li>
                     <li className='item'>
-                      <NavLink to='/works' className='link' activeClassName='active' exact>Работы</NavLink>
+                      <NavLink to='/works' className='link' activeClassName='active' exact>{t('nav.3')}</NavLink>
                       <div className='dropdown'>
                         <div className='dropdown-item'> 
-                          <NavLink to='/works/plastic' className='link' activeClassName='active' exact>Пластические операции</NavLink>
+                          <NavLink to='/works/plastic' className='link' activeClassName='active' exact>{t('nav.4')}</NavLink>
                         </div>
                         <div className='dropdown-item'> 
-                          <NavLink to='/works/reconstruction' className='link' activeClassName='active' exact>Реконструктивные операции</NavLink>
+                          <NavLink to='/works/reconstruction' className='link' activeClassName='active' exact>{t('nav.5')}</NavLink>
                         </div>
                         <div className='dropdown-item'> 
-                          <NavLink to='/works/example' className='link' activeClassName='active' exact>Работы “До - После”</NavLink>
+                          <NavLink to='/works/example' className='link' activeClassName='active' exact>{t('nav.6')}</NavLink>
                         </div>
                       </div>
                     </li>
                     <li className='item'>
-                      <NavLink to='/gallery' className='link' activeClassName='active' >Галерея</NavLink>
+                      <NavLink to='/gallery' className='link' activeClassName='active' >{t('nav.7')}</NavLink>
                       <div className='dropdown'>
                         <div className='dropdown-item'> 
-                          <NavLink to='/gallery/clinic' className='link' activeClassName='active'>Галерея клиники</NavLink>
+                          <NavLink to='/gallery/clinic' className='link' activeClassName='active'>{t('nav.8')}</NavLink>
                         </div>
                         <div className='dropdown-item'> 
-                          <NavLink to='/gallery/works' className='link' activeClassName='active'>Галерея работ “До - После”</NavLink>
+                          <NavLink to='/gallery/works' className='link' activeClassName='active'>{t('nav.6')}</NavLink>
                         </div>
                       </div>
                     </li>
-                    <li className='item'><NavLink to='/blogs' className='link' activeClassName='active' >Блог</NavLink></li>
-                    <li className='item end'><NavLink to='/contacts' className='link' activeClassName='active' >Контакты</NavLink></li> 
+                    <li className='item'><NavLink to='/blogs' className='link' activeClassName='active' >{t('nav.10')}</NavLink></li>
+                    <li className='item end'><NavLink to='/contacts' className='link' activeClassName='active' >{t('nav.11')}</NavLink></li> 
                   </ul>
               </nav>
-              <button className='btn' onClick={() => setActive(true)}>Оставить заявку</button> 
+              <button className='btn' onClick={() => setActive(true)}>{t('btns.1')}</button> 
             </div>
           </div>
         </div>

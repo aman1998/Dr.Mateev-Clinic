@@ -7,10 +7,10 @@ import icon4 from '../../assets/icons/handshake.svg'
 
 const Section2 = () => {
   const views = [
-    {id: 1, title: 'Подтяжка лица', icon: icon1},
-    {id: 2, title: 'Пластика век', icon: icon2},
-    {id: 3, title: 'Контурная пластика губ', icon: icon3},
-    {id: 4, title: 'Липосакция', icon: icon4}
+    {id: 1, title: 'Заявка', icon: icon1},
+    {id: 2, title: 'Связь', icon: icon2},
+    {id: 3, title: 'Обсуждение', icon: icon3},
+    {id: 4, title: 'Контракт', icon: icon4}
   ]
   return (
     <section className='section-2'>

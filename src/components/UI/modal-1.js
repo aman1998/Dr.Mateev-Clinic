@@ -2,11 +2,14 @@ import React, {useState} from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import { fetchAppliactionActionCreator } from '../../store/actions/appliaction';
 
+import { useTranslation } from 'react-i18next';
+
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
 import icon from '../../assets/icons/handshake.svg';
 
 const Modal1 = ({active, setActive}) => {
+  const { t, i18n } = useTranslation()
   const [error, setError] = useState(false)
   const [message, setMessage] = useState('')
   const [phone, setPhone] = useState('')
@@ -31,9 +34,9 @@ const Modal1 = ({active, setActive}) => {
       validationSchema={
         Yup.object().shape({
           fio: Yup.string()
-            .required('Напишите свое имя'),
+            .required(t('inputs.5')),
           phone: Yup.string()
-            .required('Введите свой номер'),
+            .required(t('inputs.6')),
         })
       }
       onSubmit = {
@@ -55,19 +58,17 @@ const Modal1 = ({active, setActive}) => {
           { success ? 
           <div className='success'>
             <div className='success-wrapper'>
-              <div className='success-title'>Спасибо!</div>
+              <div className='success-title'>{t('modal.3')}</div>
               <img src={icon} alt='hand' className='success-icon'/>
-              <div className='success-text'>В самое ближайщее время мы свяжемся с вами. </div>
+              <div className='success-text'>{t('modal.4')}</div>
             </div>
           </div>
           :
           <div>
-            <div className='title'>Закажите консультацию</div>
-            <p>C вами cвяжутся в ближайшие 
-              время и подробно проконсультируют!
-            </p>
+            <div className='title'>{t('modal.1')}</div>
+            <p>{t('modal.2')}</p>
             <Form className='loginForm'>
-              <Field type="text" name="fio" className='input' placeholder='Имя'/>
+              <Field type="text" name="fio" className='input' placeholder={t('inputs.1')}/>
               <ErrorMessage name="fio" component="div" className='error'/>
               <Field type="text" name="phone" className='input' placeholder='+996555112233'/>
               <ErrorMessage name="phone" component="div" className='error'/>
@@ -95,16 +96,16 @@ const Modal1 = ({active, setActive}) => {
                 className='input input-text' 
                 name='message' 
                 value={message}
-                placeholder='Сообщение'
+                placeholder={t('inputs.3')}
                 onFocus={() => setError(false)}
                 onChange={(e) => setMessage(e.target.value)} />
-              {error ? <div className='error'>Заполните форму</div> : ''}
+              {error ? <div className='error'>{t('inputs.7')}</div> : ''}
               <button type="submit" className='btn'>
                 {loading ? 
                   <div className='loading'></div> : 
                 failed ? 
-                  <div className='btn-error'>{'Ошибка'}</div> : 
-                  'Оправить'}
+                  <div className='btn-error'>{t('btns.4')}</div> : 
+                  t('btns.3')}
               </button>
             </Form>
           </div>

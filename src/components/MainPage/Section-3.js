@@ -1,12 +1,15 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-import icon1 from '../../assets/icons/lift.svg'
-import icon2 from '../../assets/icons/eyebrows.svg'
-import icon3 from '../../assets/icons/lips.svg'
-import icon4 from '../../assets/icons/liposuction.svg'
+import { useTranslation } from 'react-i18next';
+
+import icon1 from '../../assets/icons/lift.svg';
+import icon2 from '../../assets/icons/eyebrows.svg';
+import icon3 from '../../assets/icons/lips.svg';
+import icon4 from '../../assets/icons/liposuction.svg';
 
 const Section3 = () => {
+  const { t } = useTranslation()
   const views = [
     {id: 1, title: 'Подтяжка лица', icon: icon1},
     {id: 2, title: 'Пластика век', icon: icon2},
@@ -16,7 +19,7 @@ const Section3 = () => {
   return (
     <section className='section-3'>
       <div className='container'>
-        <h2 className='title'>Виды операций</h2>
+        <h2 className='title'>{t('title.2')}</h2>
         <div className='views'>
           {views.map(item => 
             <div key={item.id} className={`view view-${item.id}`}>
@@ -24,7 +27,7 @@ const Section3 = () => {
               <div className='text'>{item.title}</div>
               <NavLink to='/works/' className={`btn`}>
                 <button className='btn'>
-                  Подробнее
+                {t('btns.2')}
                 </button>
               </NavLink>
             </div>

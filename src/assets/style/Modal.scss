@@ -218,18 +218,18 @@
   animation: deleteForm 1s forwards ease;
 }
 .up {
-  animation: showForm .5s forwards ease;
+  animation: showForm 800ms forwards ease;
   opacity: 1;
   pointer-events: all;
   @media screen and (max-width: 560px) {
-    animation: showFormMobile .5s forwards ease;
+    animation: showFormMobile 800ms forwards ease;
   }
   }
 
 @keyframes showForm {
   0% {
     top: 0;
-    right: -100%;
+    right: -200%;
     transform: translateX(-50%);
   }
   100% {

@@ -1,14 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import image1 from '../../assets/img/mateev-1.png'
-import image2 from '../../assets/img/mateev-2.jpg'
-import image3 from '../../assets/img/mateev=3.jpg'
-import image4 from '../../assets/img/mateev-4.jpg'
-import image5 from '../../assets/img/mateev-5.jpg'
-import image6 from '../../assets/img/mateev-6.jpg'
-import image7 from '../../assets/img/awards.png'
+import { useTranslation } from 'react-i18next';
+
+import image1 from '../../assets/img/mateev-1.png';
+import image2 from '../../assets/img/mateev-2.jpg';
+import image3 from '../../assets/img/mateev=3.jpg';
+import image4 from '../../assets/img/mateev-4.jpg';
+import image5 from '../../assets/img/mateev-5.jpg';
+import image6 from '../../assets/img/mateev-6.jpg';
+import image7 from '../../assets/img/awards.png';
 
 const About1 = () => {
+  const { t } = useTranslation()
   const images = [
     {img: image1},
     {img: image2},
@@ -23,7 +26,7 @@ const About1 = () => {
   return (
     <section className='section-1 slider'>
       <div className='container'>
-        <h2 className='title'>О профессоре</h2>
+        <h2 className='title'>{t('title.5')}</h2>
         <img src={selectedImg} alt='mateev' className='selected'/>
         <div className='images'>
           {images.map((item, index) => (
@@ -37,8 +40,8 @@ const About1 = () => {
               />
           ))}
         </div>
-        <div className='text'>Матеев Муса Асыпбекович - врач высшей категории и доктор медицинских наук. Имеет более 42 года опыта работы!
-        <p className='career'>Образование</p>
+        <div className='text'>{t('text.5')}
+        <p className='career'>{t('title.14')}</p>
         <ul>
           <li>1982-КГМА, лечбный факультет</li>
           <li>1983-Интернатура по общей хирургии, НГ МЗ КР</li>
@@ -47,7 +50,7 @@ const About1 = () => {
           <li>1998-Докторская степень, Москва, Институт хирургии им. Вишневского АМН СССР</li>
           <li>2001-Специализация по хирургии кисти, Клиника Беллара, Вена, Австрия</li>
         </ul>
-        <p className='career'>Профессиональная карьера</p>
+        <p className='career'>{t('title.15')}</p>
         <ul>
           <li>1985-94 - Врач микрохирург, отделение микрохирургии, НГ МЗ КР</li>
           <li>1994-наст.время - Заведущий отделением микрохирургии, НГ МЗ КР</li>
