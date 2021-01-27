@@ -8,7 +8,6 @@ import { useTranslation } from 'react-i18next';
 import icon1 from '../../assets/icons/map.svg';
 import icon2 from '../../assets/icons/phone.svg';
 import icon3 from '../../assets/icons/facebook.svg';
-import icon4 from '../../assets/icons/twitter.svg';
 import icon5 from '../../assets/icons/instagram.svg';
 
 import Burger from '../UI/burger';
@@ -33,16 +32,15 @@ const Header = () => {
 
   useEffect(() => {
     dispatch(getLanguage(localStorage.getItem('i18nextLng')))
-  }, [language])
+  }, [language]) // eslint-disable-line react-hooks/exhaustive-deps
 
   async function handleChange (e) {
     dispatch(getLanguage(e.target.value))
     await i18n.changeLanguage(e.target.value)
   }
-  
     return (
-      <header className='container'>
-        <div className='header'>
+      <header className='header' id='header'>
+        <div className='container'>
           <NavLink to='/' exact>
             <div className='logo'></div>
           </NavLink>
@@ -65,9 +63,8 @@ const Header = () => {
                 </div>
               </div>
               <div className='contacts-right'>
-                <img src={icon3} alt='facebook-icon' className='item'/>
-                <img src={icon4} alt='twitter-icon' className='item'/>
-                <img src={icon5} alt='instagram-icon' className='item'/>
+                <a className='item' href='https://www.facebook.com/musamateev.clinic/' target='_blank' rel="noreferrer"><img src={icon3} alt='facebook-icon'/></a>
+                <a className='item' href='https://www.instagram.com/musamateev_clinic/?hl=ru' target='_blank' rel="noreferrer"><img src={icon5} alt='instagram-icon'/></a>
                 <div className='select'>
                   <select name = 'myfield' defaultValue={language ? language : 'ru'} className='language' onChange={handleChange}>
                     <option value="ru">RU</option>
@@ -97,7 +94,7 @@ const Header = () => {
                       </div>
                     </li>
                     <li className='item'>
-                      <NavLink to='/gallery' className='link' activeClassName='active' >{t('nav.7')}</NavLink>
+                      <NavLink to='/gallery/clinic' className='link' activeClassName='active' >{t('nav.7')}</NavLink>
                       <div className='dropdown'>
                         <div className='dropdown-item'> 
                           <NavLink to='/gallery/clinic' className='link' activeClassName='active'>{t('nav.8')}</NavLink>

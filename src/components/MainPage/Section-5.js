@@ -7,11 +7,9 @@ import { useTranslation } from 'react-i18next';
 
 const Section5 = () => {
   const { t } = useTranslation()
-  const {reviews, success, failed, loading} = useSelector(state => ({
+  const {reviews, success} = useSelector(state => ({
     reviews: state.reviews.reviews,
-    loading: state.reviews.get.loading,
     success: state.reviews.get.success,
-    failed: state.reviews.get.failed,
   }))
 
 const breakPoints = [
@@ -34,7 +32,7 @@ const breakPoints = [
            {/* <div className='views'> */}
             {reviews.map((item, id) => 
               <div key={id} className='view'>
-                <img src={item.photo} alt='photo' className='photo'/>
+                <img src={item.photo} alt='photos' className='photo'/>
                 <p className='name'>{item.name}</p>
                 <p className='text'>{item.feedback}</p>
               </div>

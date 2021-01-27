@@ -12,7 +12,6 @@ import icon5 from '../../assets/icons/twitter.svg';
 import icon6 from '../../assets/icons/instagram.svg';
 
 import Message from '../UI/message';
-import photo from '../../assets/img/clinic.png';
 
 const Contacts = () => {
   const { t } = useTranslation()
@@ -24,9 +23,8 @@ const Contacts = () => {
   const [active, setActive] = useState(false)
   const [close, setClose] = useState(false)
 
-  const {loading, failed, success} = useSelector(state => ({
+  const {loading, failed} = useSelector(state => ({
     loading: state.message.post.loading,
-    success: state.message.post.success,
     failed: state.message.post.failed,
   }))
   const dispatch = useDispatch()
@@ -52,10 +50,10 @@ const Contacts = () => {
       <div className='container form'>
         <div className='left'>
           <div className='title'>{t('title.13')}</div>
-          <form className="contact-form" className='loginForm' onSubmit={sendEmail}>
+          <form className="contact-form loginForm" onSubmit={sendEmail}>
           <div className='input-wrapper'>
               <div className='wrapper'>
-                <div className='label' className='name'>{t('inputs.1')}</div>
+                <div className='label name'>{t('inputs.1')}</div>
                 <input 
                   type="text" 
                   name="name" 
@@ -66,7 +64,7 @@ const Contacts = () => {
                   />
               </div>
               <div className='wrapper'>
-                <div className='label' className='name'>{t('inputs.4')}</div>
+                <div className='label name'>{t('inputs.4')}</div>
                 <input 
                   type="text" 
                   name="phone" 
@@ -78,7 +76,7 @@ const Contacts = () => {
                   />
               </div>
             </div>
-            <div className='label' className='name'>{t('inputs.2')}</div>
+            <div className='label name'>{t('inputs.2')}</div>
             <input 
               type='email' 
               name="email" 
@@ -87,7 +85,7 @@ const Contacts = () => {
               onFocus={() => setError(false)}
               onChange={(e) => setMail(e.target.value)}
               />
-            <div className='label' className='name'>{t('inputs.3')}</div>
+            <div className='label name'>{t('inputs.3')}</div>
             <textarea 
               className='input input-text' 
               name='message' 
@@ -98,7 +96,8 @@ const Contacts = () => {
             {loading ? 
             <div className='btn'>
               <div className='loading'></div>
-            </div> :
+            </div> : 
+            failed ? <input type="submit" value={t('btns.4')} className='btn'/> :
             <input type="submit" value={t('btns.3')} className='btn'/>
           }
           </form>

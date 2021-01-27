@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import PageTemplate from "../components/Template/PageTemplate2"
 
 import Section1 from '../components/WorksPage/ReconstructionPage/Section-1'

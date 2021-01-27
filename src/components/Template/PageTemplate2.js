@@ -14,7 +14,7 @@ const PageTemplate2 = (props) => {
 
   return (
     <PageTemplate>
-      <img src={photo} data-aos='fade-top' alt='photo' className='clinic-photo'/>
+      <img src={photo} data-aos='fade-top' alt='photos' className='clinic-photo'/>
       <section>{props.children}</section>
       <div className='mainPage'>
         <CallBlock />

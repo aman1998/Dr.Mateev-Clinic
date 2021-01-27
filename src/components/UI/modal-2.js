@@ -12,7 +12,7 @@ import icon from '../../assets/icons/handshake.svg';
 
 
 const Modal1 = ({active, setActive, setClose, close}) => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const [message, setMessage] = useState('')
   const [error, setError] = useState(false)
 
@@ -80,24 +80,23 @@ const Modal1 = ({active, setActive, setClose, close}) => {
                   <Field type="text" name="phone" className='input' placeholder='+996555822737'/>
                   <ErrorMessage name="phone" component="div" className='error'/>
                   <Field as="select" name="oper" className='input'>
-                    <option value="PL">Подтяжка лица</option>
-                    <option value="PV">Пластика век</option>
-                    <option value="KPG">Контурная пластика губ</option>
-                    <option value="L">Липосакция</option>
-                    <option value="PJ">Пластика живота</option>
-                    <option value="PG">Пластика груди</option>
-                    <option value="PR">Пластика дефектов после огнестрельных ранений</option>
-                    <option value="PZ">Пластика заячьей губы</option>
-                    <option value="PPR">Пластика послеоперационных рубцов</option>
-                    <option value="PTD">Пластика травматических дефектов</option>
-                    <option value="PPK">Пластика послеожоговых контрактур</option>
-                    <option value="PLS">Пластика врожденных ложных суставов</option>
-                    <option value="PDP">Пластика дефектов после удаления опухолей</option>
-                    <option value="EGS">Эндопротезирование груди силиконовыми имплантами</option>
-                    <option value="MSN">Микрохирургический шов повреждений нервов верхней конечности</option>
-                    <option value="MSS">Микрохирургический шов сухожилий кисти</option>
-                    <option value="XS">Хирургическое лечение болей в  кисти</option>
-                    <option value="XKS">Хирургическая коррекция деформаций конечностей при ДЦП детей</option>
+                    <option value="PL">{t('views.1')}</option>
+                    <option value="PV">{t('views.2')}</option>
+                    <option value="KPG">{t('views.3')}</option>
+                    <option value="L">{t('views.4')}</option>
+                    <option value="PJ">{t('views.5')}</option>
+                    <option value="PG">{t('views.6')}</option>
+                    <option value="PR">{t('views.7')}</option>
+                    <option value="PZ">{t('views.8')}</option>
+                    <option value="PTD">{t('views.9')}</option>
+                    <option value="PPK">{t('views.10')}</option>
+                    <option value="PLS">{t('views.11')}</option>
+                    <option value="PDP">{t('views.12')}</option>
+                    <option value="EGS">{t('views.13')}</option>
+                    <option value="MSN">{t('views.14')}</option>
+                    <option value="MSS">{t('views.15')}</option>
+                    <option value="XS">{t('views.16')}</option>
+                    <option value="XKS">{t('views.17')}</option>
                   </Field>
                   <textarea 
                     className='input input-text' 

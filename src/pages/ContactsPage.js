@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import PageTemplate from '../components/Template/PageTemplate';
 import Section from '../components/ContactsPage/Contacts';
@@ -10,7 +10,7 @@ const ContactsPage = () => {
   return (
     <PageTemplate>
       <div className='contactsPage'>
-        <img src={photo} alt='photo' className='clinic-photo'/>
+        <img src={photo} alt='photos' className='clinic-photo'/>
         <div className='mainPage'><Application /></div>
         <Section />
         <Map />

@@ -16,7 +16,8 @@ const AboutPage = () => {
     if(blogs.length === 0) {
       dispatch(fetchBlogsAcionCreater())
     }
-  }, [])
+  }, [])// eslint-disable-line react-hooks/exhaustive-deps
+  
   return (
       <PageTemplate>
         <div className='blogsPage'>

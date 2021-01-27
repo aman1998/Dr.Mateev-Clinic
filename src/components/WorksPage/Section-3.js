@@ -1,10 +1,14 @@
+import { useTranslation } from 'react-i18next';
+
 const Section3 = () => {
+  const { t } = useTranslation()
+
   return (
     <section className='section-3'>
       <div className='container'>
-        <h2 className='title'>Что нужно знать перед операцией</h2>
+        <h2 className='title'>{t('title.21')}</h2>
         <div className='content'>
-          <div className='left'>Анализы</div>
+          <div className='left'>{t('title.22')}</div>
           <div className='right'>
             <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elit dui aliquam elementum tristique libero pretium lobortis. Aenean facilisi eu a nulla ornare. Tristique justo, vel hendrerit non pulvinar feugiat amet. Sapien sem molestie phasellus in sed arcu. Elit amet aliquam senectus sagittis. Sociis nisi cras aenean risus donec eget cursus facilisi. Gravida egestas a, sociis eu dictum aliquam. Sed vivamus faucibus dignissim condimentum.
@@ -16,7 +20,7 @@ const Section3 = () => {
           </div>
         </div>
         <div className='content content--2'>
-          <div className='left'>Противопоказания</div>
+          <div className='left'>{t('title.23')}</div>
           <div className='right'>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elit dui aliquam elementum tristique libero pretium lobortis. Aenean facilisi eu a nulla ornare. Tristique justo, vel hendrerit non pulvinar feugiat amet. Sapien sem molestie phasellus in sed arcu. Elit amet aliquam senectus sagittis. Sociis nisi cras aenean risus donec eget cursus facilisi. Gravida egestas a, sociis eu dictum aliquam. Sed vivamus faucibus dignissim condimentum.

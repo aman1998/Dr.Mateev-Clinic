@@ -9,7 +9,7 @@ import Section2 from '../components/MainPage/Section-2';
 import Section3 from '../components/MainPage/Section-3';
 import Section4 from '../components/MainPage/Section-4';
 import Section5 from '../components/MainPage/Section-5';
-import Section6 from '../components/MainPage/Section-6';
+// import Section6 from '../components/MainPage/Section-6';
 import Section7 from '../components//Map/Map';
 import Section8 from '../components/ContactsPage/Contacts';
 
@@ -27,7 +27,7 @@ const MainPage = () => {
     if(reviews.length === 0) {
       dispatch(fetchReviewsAcionCreater())
     }
-  }, [])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
 
     return (

@@ -15,8 +15,8 @@ const WorksPage = () => {
     if(works.length === 0) {
       dispatch(fetchWorksAcionCreater())
     }
-  }, [])
-
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+  
   return (
     <PageTemplate>
       <div className='worksPage'>

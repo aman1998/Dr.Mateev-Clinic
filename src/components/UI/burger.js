@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import closeIcon from '../../assets/icons/close.svg'
 import { NavLink } from 'react-router-dom'
 
@@ -7,12 +7,10 @@ import { useTranslation } from 'react-i18next'
 import icon1 from '../../assets/icons/map-2.svg'
 import icon2 from '../../assets/icons/phone-2.svg'
 import icon3 from '../../assets/icons/facebook2.svg'
-import icon4 from '../../assets/icons/twitter2.svg'
 import icon5 from '../../assets/icons/instagram2.svg'
 
 const Burger = ({burger, setBurger, language, handleChange}) => {
-  const { t, i18n } = useTranslation()
-  const [gallery, setGallery] = useState(false)
+  const { t } = useTranslation()
   return (
     <div className={burger ? 'burger-wrapper show' : 'burger-wrapper'} onClick={() => setBurger(false)}>
       <section className={`burger ${burger ? 'burger-active' : ''}`} onClick={e => e.stopPropagation()}>
@@ -49,9 +47,8 @@ const Burger = ({burger, setBurger, language, handleChange}) => {
               <div className='phone'>+996 774 728 966</div>
             </div>
             <div className='links'>
-              <img src={icon3} alt='facebook-icon'/>
-              <img src={icon4} alt='twitter-icon' />
-              <img src={icon5} alt='instagram-icon'/>
+              <a href='https://www.facebook.com/musamateev.clinic/' target='_blank' rel="noreferrer"><img src={icon3} alt='facebook-icon'/></a>
+              <a href='https://www.instagram.com/musamateev_clinic/?hl=ru' target='_blank' rel="noreferrer"><img src={icon5} alt='instagram-icon'/></a>
             </div>
             <div className='select'>
               <select name = 'myfield' defaultValue={language ? language : 'ru'} className='language' onChange={handleChange}>

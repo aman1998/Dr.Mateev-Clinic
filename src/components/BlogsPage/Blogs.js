@@ -25,7 +25,7 @@ const Blogs = () => {
   return (
     <section className='blogs-wrapper'>
       <div data-aos='fade-top'>
-        <img src={photo1} alt='photo' className='clinic-photo'/>
+        <img src={photo1} alt='photos-clinic' className='clinic-photo'/>
       </div>
       <div className='container' data-aos='fade-bottom'>
         <h1 className='title'>{t('title.11')}</h1>

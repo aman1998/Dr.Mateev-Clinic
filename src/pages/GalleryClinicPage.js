@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import PageTemplate from "../components/Template/PageTemplate2"
 
 import Section from '../components/GalleryPage/GalleryClinic.js/Clinic'

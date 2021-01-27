@@ -11,10 +11,10 @@ import icon4 from '../../assets/icons/liposuction.svg';
 const Section3 = () => {
   const { t } = useTranslation()
   const views = [
-    {id: 1, title: 'Подтяжка лица', icon: icon1},
-    {id: 2, title: 'Пластика век', icon: icon2},
-    {id: 3, title: 'Контурная пластика губ', icon: icon3},
-    {id: 4, title: 'Липосакция', icon: icon4}
+    {id: 1, title: t('views.1'), icon: icon1},
+    {id: 2, title: t('views.2'), icon: icon2},
+    {id: 3, title: t('views.3'), icon: icon3},
+    {id: 4, title: t('views.4'), icon: icon4}
   ]
   return (
     <section className='section-3'>
@@ -23,7 +23,7 @@ const Section3 = () => {
         <div className='views'>
           {views.map(item => 
             <div key={item.id} className={`view view-${item.id}`}>
-              <img src={item.icon} alt='photo' className='icon'/>
+              <img src={item.icon} alt='photos' className='icon'/>
               <div className='text'>{item.title}</div>
               <NavLink to='/works/' className={`btn`}>
                 <button className='btn'>

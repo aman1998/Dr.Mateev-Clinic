@@ -5,11 +5,10 @@ import { useTranslation } from 'react-i18next'
 
 import logo from "../../assets/img/logo2.png";
 import icon1 from '../../assets/icons/facebook2.svg'
-import icon2 from '../../assets/icons/twitter2.svg'
 import icon3 from '../../assets/icons/instagram2.svg'
 
 const Footer = () => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
 
   return (
     <footer className='footer'>
@@ -36,9 +35,8 @@ const Footer = () => {
             <div className='item'>+996 774 728 966</div>
             <div className='item'>{t('contacts.2')}</div>
             <div>
-              <img src={icon1} alt='facebook-icon' className='icon'/>
-              <img src={icon2} alt='twitter-icon' className='icon'/>
-              <img src={icon3} alt='instagram-icon' className='icon instagram'/>
+              <a href='https://www.facebook.com/musamateev.clinic/' target='_blank' rel="noreferrer"><img src={icon1} alt='facebook-icon' className='icon'/></a>
+              <a href='https://www.instagram.com/musamateev_clinic/?hl=ru' target='_blank' rel="noreferrer"><img src={icon3} alt='instagram-icon' className='icon instagram'/></a>
             </div>
           </div>
         </div>

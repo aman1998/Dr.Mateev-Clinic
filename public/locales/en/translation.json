@@ -62,8 +62,13 @@
     "16": "Blog",
     "17": "Application",
     "18": "Communication",
-    "19": "Консультация",
-    "20": "Contract"
+    "19": "Consultation",
+    "20": "Contract",
+    "21": "What you need to know before surgery",
+    "22": "Analyzes",
+    "23": "Contraindications",
+    "24": "Plastic surgery",
+    "25": "Reconstructive surgery"
   },
   "text": {
     "1": "The doctors of Professor Mateev's clinic professionally eliminate defects and restore the necessary body functions. Specifically, congenital limb defects include their absence or incomplete development, extra or abnormally developed limbs that are present from birth.",
@@ -79,5 +84,38 @@
     "11": "Blog",
     "12": "Contacts",
     "13": "We will try to answer your question as soon as possible."
+  },
+  "career": {
+    "1": "1982-КГМА, medical faculty",
+    "2": "1983-General Surgery Internship, НГ МЗ КР",
+    "3": "1985-Clinical Residency in Microsurgery ВНЦХ АМН USSR, Moscow",
+    "4": "1989-КГМА, Ph.D.",
+    "5": "1998-Doctoral degree, Moscow, Institute of Surgery. Vishnevsky AMN SSSР",
+    "6": "2001-Specialization in Hand Surgery, Bellara Clinic, Vienna, Austria",
+    "7": "1985-94 - Physician microsurgeon, department of microsurgery, НГ МЗ КР",
+    "8": "1994-now - Head of the Department of Microsurgery, НГ МЗ КР",
+    "9": "2002-now - Professor of the Department of Surgery, КГМА",
+    "10": "2004-now - Professor of the Department of Hospital Surgery, КРСУ",
+    "11": "2005-now - Head of the course of microsurgery КГМИ"
+  },
+  "views": {
+    "1": "Face lift",
+    "2": "Eyelid surgery",
+    "3": "Lip contouring",
+    "4": "Liposuction",
+    "5": "Tummy tuck",
+    "6": "Breast plastic surgery",
+    "7": "Repair of defects after gunshot wounds",
+    "8": "Cleft lip plasty",
+    "9": "Postoperative scar plasty",
+    "10": "Plastic surgery of traumatic defects",
+    "11": "Plastics of post-burn contractures",
+    "12": "Plastic surgery of congenital false joints",
+    "13": "Defect plasty after tumor removal",
+    "14": "Breast endoprosthetics with silicone implants",
+    "15": "Microsurgical suture of nerve injuries of the upper limb",
+    "16": "Microsurgical suture of hand tendons",
+    "17": "Surgical treatment of hand pain",
+    "18": "Surgical correction of limb deformities in children with cerebral palsy"
   }
 }

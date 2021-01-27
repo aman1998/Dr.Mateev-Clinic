@@ -8,7 +8,7 @@ const Section2 = () => {
   return (
     <section className='section-2'>
       <div className='container'>
-        <img src={photo} alt='photo' className='photo'/>
+        <img src={photo} alt='photos' className='photo'/>
         <div className='content'>
           <h2 className='title'>{t('title.1')}</h2>
           <p className='text'>{t('text.1')}</p>
