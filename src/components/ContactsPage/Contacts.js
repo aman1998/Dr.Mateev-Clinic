@@ -50,7 +50,7 @@ const Contacts = () => {
       <div className='container form'>
         <div className='left'>
           <div className='title'>{t('title.13')}</div>
-          <form className="contact-form loginForm" onSubmit={sendEmail}>
+          <form className="contact-form loginForm">
           <div className='input-wrapper'>
               <div className='wrapper'>
                 <div className='label name'>{t('inputs.1')}</div>
@@ -98,7 +98,7 @@ const Contacts = () => {
               <div className='loading'></div>
             </div> : 
             failed ? <input type="submit" value={t('btns.4')} className='btn'/> :
-            <input type="submit" value={t('btns.3')} className='btn'/>
+            <button className='btn' onClick={sendEmail}>{t('btns.3')}</button>
           }
           </form>
         </div>

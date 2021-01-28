@@ -122,8 +122,8 @@
   width: 300px;
   position: absolute;
   color: #FFFFFF;
-  // z-index: 300;
-  // top: -100%;
+  right: -600px;
+  transition: 700ms;
   .signUp {
     .name {
       margin-bottom: 8px;
@@ -214,30 +214,14 @@
   }
 }
 
-.down {
-  animation: deleteForm 1s forwards ease;
-}
 .up {
-  animation: showForm 800ms forwards ease;
-  opacity: 1;
-  pointer-events: all;
+  right: 80px;
+  // transition: 800ms;
   @media screen and (max-width: 560px) {
-    animation: showFormMobile 800ms forwards ease;
-  }
-  }
-
-@keyframes showForm {
-  0% {
-    top: 0;
-    right: -100%;
-    transform: translateX(-50%);
-  }
-  100% {
-    top: 0;
     right: 0;
-    transform: translateX(-28%);
   }
-}  
+  }
+ 
 
 @keyframes showFormMobile {
   0% {
@@ -252,26 +236,6 @@
   }
 }  
 
-@keyframes deleteForm {
-  0% {
-    top: 0;
-    right: 0;
-    transform: translateX(-50%);
-  }
-  30% {
-    // top: -100%;
-    right: -100%;
-    transform: translateX(-50%);
-  }
-  100% {
-    // top: -100%;
-    top: 0;
-    right: -100%;
-    transform: translateX(-60%);
-    opacity: 0;
-    pointer-events: none;
-  }
-}  
 
 .check-wrapper {
   display: flex;

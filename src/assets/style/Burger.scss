@@ -11,7 +11,7 @@
   opacity: 0;
   pointer-events: none;
   z-index: 2;
-  transition: 330ms;
+  // transition: 100ms;
 }
 .show {
   opacity: 1;
@@ -80,6 +80,9 @@
         appearance:none;
         outline:0;
         box-shadow:none;
+        border:1px solid $lightGreen !important;
+        background: $lightGreen;
+        color: rgb(255, 255, 255) !important;
         background-image: none;
         color:#0A0816;;
         padding: 5px;
@@ -94,7 +97,7 @@
       .select {
         position: relative;
         display: flex;
-      }
+      }       
       .item {
         display: flex;
         align-items: center;

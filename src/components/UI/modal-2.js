@@ -60,7 +60,7 @@ const Modal1 = ({active, setActive, setClose, close}) => {
       } >
       {() => (
         <section className={active ? 'modal-wrapper show' : 'modal-wrapper'} onClick={closeModal}>
-          <section className={`modal2 ${active ? 'up' : close ? 'down' : ''}`} onClick={e => e.stopPropagation()}>
+          <section className={`modal2 ${active ? 'up' : ''}`} onClick={e => e.stopPropagation()}>
             <div className='content2' >
               { success ?
               <div className='success'>

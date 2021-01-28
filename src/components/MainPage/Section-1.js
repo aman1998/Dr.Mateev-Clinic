@@ -6,6 +6,7 @@ const Section1 = () => {
     <section className='section-1'>
       <div className='container'>
         <div className='title'>{t('text.3')}</div>
+        <div className='title'>{t('text.14')}</div>
       </div>
     </section>
   )

@@ -39,8 +39,8 @@ const Header = () => {
     await i18n.changeLanguage(e.target.value)
   }
     return (
-      <header className='header' id='header'>
-        <div className='container'>
+      <header className='container' id='header'>
+        <div className='header'>
           <NavLink to='/' exact>
             <div className='logo'></div>
           </NavLink>

@@ -14,6 +14,7 @@ const PageTemplate2 = (props) => {
 
   return (
     <PageTemplate>
+      {/* <div className='clinic-photo'></div> */}
       <img src={photo} data-aos='fade-top' alt='photos' className='clinic-photo'/>
       <section>{props.children}</section>
       <div className='mainPage'>
