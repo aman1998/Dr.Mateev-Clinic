@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLanguage } from "../../store/actions/language";
@@ -28,11 +28,6 @@ const Header = () => {
   const { language } = useSelector(state => ({
     language: state.language.language,
   }))
-
-
-  useEffect(() => {
-    dispatch(getLanguage(localStorage.getItem('i18nextLng')))
-  }, [language]) // eslint-disable-line react-hooks/exhaustive-deps
 
   async function handleChange (e) {
     dispatch(getLanguage(e.target.value))

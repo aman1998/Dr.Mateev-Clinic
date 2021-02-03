@@ -48,9 +48,16 @@
              }
           }
           .mail {
-            margin-left: 20px;
             max-width: 220px;
             width: 100%;
+          }
+          img {
+            width: 30px;
+            height: 30px;
+            @media screen and (max-width: 560px) {
+              width: 24px;
+              height: 24px;
+             }
           }
         }
         .line {
@@ -58,14 +65,20 @@
           max-width: 270px;
           width: 100%;
           border: 1px solid rgba(0, 0, 0, 0.2);
-          @media screen and (max-width: 1170px) {
+          @media screen and (max-width: 560px) {
             margin-top: 40px;
            }
         }
         .links {
           display: flex;
           .link {
-            margin-right: 38px;
+            margin-right: 10px;
+            width: 30px;
+            height: 30px;
+            @media screen and (max-width: 1170px) {
+              width: 24px;
+              height: 24px;
+             }
           }
         }
       }

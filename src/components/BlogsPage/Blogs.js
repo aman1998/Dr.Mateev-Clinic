@@ -3,8 +3,6 @@ import { useSelector } from 'react-redux';
 
 import { useTranslation } from 'react-i18next';
 
-import photo1 from '../../assets/img/clinic.png';
-
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import Loader from '../Loader/Loader';
@@ -24,9 +22,6 @@ const Blogs = () => {
 
   return (
     <section className='blogs-wrapper'>
-      <div data-aos='fade-top'>
-        <img src={photo1} alt='photos-clinic' className='clinic-photo'/>
-      </div>
       <div className='container' data-aos='fade-bottom'>
         <h1 className='title'>{t('title.11')}</h1>
         <p className='text'>{t('text.10')}</p>

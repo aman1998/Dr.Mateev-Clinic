@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchBlogsAcionCreater } from '../store/actions/blogs';
 
-import PageTemplate from '../components/Template/PageTemplate';
+import PageTemplate from '../components/Template/PageTemplate2';
 import Section from '../components/BlogsPage/Blogs';
 
 const AboutPage = () => {

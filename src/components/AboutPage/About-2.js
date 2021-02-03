@@ -13,7 +13,7 @@ const About2 = () => {
         <img src={image1} alt='teams' className='teams'/>
         <div className='teams-wrapper'>
           <div className='left'>
-            <img src={image2} alt='teams' />
+            <img src={image2} alt='teams' className='teams-1'/>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum habitant aliquam viverra morbi et tincidunt diam placerat consectetur. Pellentesque orci pulvinar velit non. Erat libero commodo, felis diam aliquet ac in. Viverra odio dictum mauris et senectus eu quis porttitor pretium. Ut varius proin lectus donec luctus dignissim. Enim integer magna massa commodo. 
             </p>
           </div>

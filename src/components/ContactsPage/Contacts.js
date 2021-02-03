@@ -8,7 +8,6 @@ import icon1 from '../../assets/icons/phone.svg';
 import icon2 from '../../assets/icons/message.svg';
 import icon3 from '../../assets/icons/map.svg';
 import icon4 from '../../assets/icons/facebook.svg';
-import icon5 from '../../assets/icons/twitter.svg';
 import icon6 from '../../assets/icons/instagram.svg';
 
 import Message from '../UI/message';
@@ -117,9 +116,12 @@ const Contacts = () => {
           </div>
           <div className='line'></div>
           <div className='links'>
-            <img src={icon4} alt='icon' className='link'/>
-            <img src={icon5} alt='icon' className='link'/>
-            <img src={icon6} alt='icon' className='link'/>
+            <a href='https://www.facebook.com/musamateev.clinic/' target='_blank' rel="noreferrer" className='link'>
+              <img src={icon4} alt='icon' className='link'/>
+            </a>
+            <a href='https://www.instagram.com/musamateev_clinic/?hl=ru' target='_blank' rel="noreferrer" className='link'>
+              <img src={icon6} alt='icon' className='link'/>
+            </a>
           </div>
         </div>
       </div>
