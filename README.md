@@ -1,6 +1,7 @@
 # Инициализация
 
-Проект создан с помощью команды "npx create-react-app"
+### `git clone https://github.com/aman1998/Dr.Mateev-Clinic.git`
+### `npm i`
 
 ## Доступные команды
 
