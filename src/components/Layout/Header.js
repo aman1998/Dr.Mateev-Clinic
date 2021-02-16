@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLanguage } from "../../store/actions/language";
@@ -28,6 +28,13 @@ const Header = () => {
   const { language } = useSelector(state => ({
     language: state.language.language,
   }))
+
+
+  useEffect(() => {
+    if(!language) {
+      i18n.changeLanguage('ru')
+    }
+  }, [])
 
   async function handleChange (e) {
     dispatch(getLanguage(e.target.value))

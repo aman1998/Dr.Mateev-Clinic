@@ -8,13 +8,11 @@ import WorksPlasticPage from './pages/WorksPlacticPage';
 import WorksReconstructionPage from './pages/WorksReconstruction';
 import WorksExamplePage from './pages/WorksExamplePage';
 import AboutPage from './pages/AboutPage';
-// import GalleryPage from './pages/GalleryPage';
 import GalleryClinicPage from './pages/GalleryClinicPage';
 import ContactsPage from './pages/ContactsPage';
 import BlogsPage from './pages/BlogsPage';
 import PageNotFound from './pages/404Page';
 
-// const AboutPage2 = React.lazy(() => import('./pages/AboutPage'));
 
 function App() {
   return (
@@ -26,7 +24,6 @@ function App() {
         <Route path='/works/reconstruction' component={WorksReconstructionPage} exact/>
         <Route path='/works/example' component={WorksExamplePage} exact/>
         <Route path='/about' component={AboutPage} exact/>
-        {/* <Route path='/gallery' component={GalleryPage} exact/> */}
         <Route path='/gallery/clinic' component={GalleryClinicPage} exact/>
         <Route path='/gallery/works' component={WorksExamplePage} exact/>
         <Route path='/contacts' component={ContactsPage} exact/>
